@@ -1,8 +1,13 @@
-import { useState } from "react";
+import { FC, useState } from "react";
 import API_KEY from "../api";
 
-const Home = () => {
-  let [summonerName, setSummonerName] = useState('');
+interface match {
+  info: object;
+}
+
+const Home:FC = () => {
+  let [summonerName, setSummonerName] = useState<string>('');
+  let [matchHistory, setMatchHistory] = useState<Array<any>>([]);
 
   async function handleSubmit(e: any) {
     e.preventDefault();
@@ -12,11 +17,11 @@ const Home = () => {
       const summoner = await summonerData.json();
       const puuid = summoner.puuid;
 
-      // Get last 10 match ids from puuid
+      // Get last 5 match ids from puuid
       const matchesData = await fetch(`https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/${puuid}/ids?start=0&count=5&api_key=${API_KEY}`);
       const matchIds = await matchesData.json();
 
-      // Get the data of those last 10 games from their respective ids
+      // Get the data of those last 5 games from their respective ids
       const matches = matchIds.map(async (id: string) => {
         const matchData = await fetch(`https://americas.api.riotgames.com/lol/match/v5/matches/${id}?api_key=${API_KEY}`);
         const match = await matchData.json();
@@ -24,6 +29,7 @@ const Home = () => {
       })
 
       const data = await Promise.all(matches);
+      setMatchHistory(data);
       console.log(data);
     } catch (error) {
       console.error('Error Buddy:', error);
@@ -31,10 +37,24 @@ const Home = () => {
   }
 
   return (
-    <form>
-      <input type="text" onChange={e => setSummonerName(e.target.value)} />
-      <button type="submit" onClick={handleSubmit}>Submit</button>
-    </form>
+    <>
+      <div>
+        {
+          matchHistory && 
+          matchHistory.map(match => {
+            return (
+              <div key={match.info.gameId}>
+                {match.info.gameId}
+              </div>
+            )
+          })
+        }    
+      </div>
+      <form>
+        <input type="text" onChange={e => setSummonerName(e.target.value)} />
+        <button type="submit" onClick={handleSubmit}>Submit</button>
+      </form>
+    </>
   )
 }
 
