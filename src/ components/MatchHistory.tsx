@@ -15,6 +15,7 @@ const MatchHistory = () => {
           <div className="champion">
             <div className="icon">
               <img src='https://picsum.photos/id/237/200/300' width={48} height={48}/>
+              <span className="level">17</span>
             </div>
             <div className="spells">
 

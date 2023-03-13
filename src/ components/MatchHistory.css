@@ -32,6 +32,29 @@
     align-items: center;
   }
 
+  .icon {
+    position: relative;
+  }
+
+  .level {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    color: white;
+    background: rgb(32, 45, 55);
+    border-radius: 50%;
+
+    width: 20px;
+    height: 20px;
+
+    font-size: 12px;
+  }
+
   .champion > .icon > img {
     display: block;
     border-radius: 50%;
