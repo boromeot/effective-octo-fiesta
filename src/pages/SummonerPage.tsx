@@ -15,16 +15,13 @@ const SummonerPage = () => {
       <div className="grid-item inner-grid-right">
         <div className='matchHistory'>item 1</div>
         <div className='matchHistory'>item 2</div>
-        <div className='matchHistory'>item 3</div>
-        <div className='matchHistory'>item 4</div>
-        <div className='matchHistory'>item 5</div>
-        <div className='matchHistory'>item 6</div>
-        <div className='matchHistory'>item 7</div>
-        <div className='matchHistory'>item 8</div>
-        <div className='matchHistory'>item 9</div>
-        <div className='matchHistory'>item 10</div>
-        <div className='matchHistory'>item 11</div>
-        <div className='matchHistory'>item 12</div>
+        <MatchHistory />
+        <MatchHistory />
+        <MatchHistory />
+        <MatchHistory />
+        <MatchHistory />
+        <MatchHistory />
+        <MatchHistory />
       </div>
     </div>
 

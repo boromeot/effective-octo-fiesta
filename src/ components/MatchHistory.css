@@ -1,3 +1,40 @@
-#matchHistory {
+.matchHistory {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 8px 0 12px;
+
   border: 1px solid red;
 }
+
+/* GAME */
+  .game {
+    display: flex;
+
+    flex-direction: column;
+    justify-content: center;
+
+    font-size: 12px;
+  }
+
+  .type, .result {
+    font-weight: bold;
+  }
+
+/* INFO */
+  .info {
+
+  }
+
+  .champion {
+    display: flex;
+    align-items: center;
+  }
+
+  .champion > .icon > img {
+    display: block;
+    border-radius: 50%;
+  }
+
+/* PARTICIPANTS */
