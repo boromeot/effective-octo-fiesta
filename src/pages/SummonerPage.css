@@ -61,6 +61,10 @@
   font-size: 12px;
 }
 
+.profile-update {
+  margin-top: 10px;
+}
+
 /* MAIN */
 .grid-container {
   display: grid;

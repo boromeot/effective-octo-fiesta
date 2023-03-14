@@ -31,7 +31,9 @@ const SummonerPage = () => {
                 <a href='#'>1,115</a>&nbsp;
                 (0.124% of top)
               </div>
-              <div className='profile-update'></div>
+              <button className='profile-update'>
+                Update
+              </button>
               <div className='profile-lastupdated'></div>
             </div>
           </section>
