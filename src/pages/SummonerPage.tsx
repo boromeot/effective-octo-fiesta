@@ -22,6 +22,25 @@ const SummonerPage = () => {
                 <li className='profile-season'>
                   <b>S2022</b> &nbsp; master
                 </li>
+                <li className='profile-season'>
+                  <b>S2022</b> &nbsp; master
+                </li>
+                <li className='profile-season'>
+                  <b>S2022</b> &nbsp; master
+                </li>
+                <li className='profile-season'>
+                  <b>S2022</b> &nbsp; master
+                </li>
+                <li className='profile-season'>
+                  <b>S2022</b> &nbsp; master
+                </li>
+                <li className='profile-season'>
+                  <b>S2022</b> &nbsp; master
+                </li>
+                <li className='profile-season'>
+                  <b>S2022</b> &nbsp; master
+                </li>
+                
               </ul>
               <div className='profile-name'>
                 Oxum 
@@ -34,7 +53,9 @@ const SummonerPage = () => {
               <button className='profile-update'>
                 Update
               </button>
-              <div className='profile-lastupdated'></div>
+              <div className='profile-lastupdated'>
+                Last updated: 2 hours ago
+              </div>
             </div>
           </section>
           <nav>
