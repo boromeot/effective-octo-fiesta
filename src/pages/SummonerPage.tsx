@@ -23,7 +23,9 @@ const SummonerPage = () => {
                   <b>S2022</b> &nbsp; master
                 </li>
               </ul>
-              <div className='profile-name'></div>
+              <div className='profile-name'>
+                Oxum 
+              </div>
               <div className='profile-ladderrank'></div>
               <div className='profile-update'></div>
               <div className='profile-lastupdated'></div>

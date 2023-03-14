@@ -52,6 +52,12 @@
   text-transform: capitalize;
 }
 
+.profile-name {
+  font-size: 26px;
+  font-weight: bold;
+}
+
+/* MAIN */
 .grid-container {
   display: grid;
   grid-template-columns: repeat(3, minmax(10px, 1fr));
