@@ -1,19 +1,22 @@
-.content-header {
+.wrapper {
   width: 1080px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
+}
+
+.content-header {
   border: 1px solid red;
+  background-color: rgb(49, 49, 60);
 }
 
 .profile {
   display: flex;
-  background-color: rgb(49, 49, 60);
+  padding: 15px 0;
 }
 
 .profile-icon {
   width: 100px;
   height: 100px;
-  margin-top: 32px;
+  margin-top: 24px;
 }
 
 .profile-icon > img {
@@ -40,11 +43,13 @@
   align-items: center;
   justify-content: center;
 
-  height: 20px;
-  width: 100px;
+  padding: 1px 8px;
+
   font-size: 11px;
   color: rgb(150, 150, 150);
   border-radius: 5px;
+
+  text-transform: capitalize;
 }
 
 .grid-container {

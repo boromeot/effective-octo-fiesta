@@ -6,31 +6,33 @@ const SummonerPage = () => {
   return (
     <>
       <header className='content-header'>
-        <section className='profile'>
-          <div className='profile-icon'>
-            <img src='https://picsum.photos/id/65/4912/3264' alt='profile summoner icon'/>
-          </div>
-          <div className='profile-info'>
-            <ul className='profile-seasons'>
-              <li className='profile-season'>
-                <b>S2022</b> &nbsp; Master
-              </li>
-              <li className='profile-season'>
-                <b>S2022</b> &nbsp; Master
-              </li>
-              <li className='profile-season'>
-                <b>S2022</b> &nbsp; Master
-              </li>
-            </ul>
-            <div className='profile-name'></div>
-            <div className='profile-ladderrank'></div>
-            <div className='profile-update'></div>
-            <div className='profile-lastupdated'></div>
-          </div>
-        </section>
-        <nav>
+        <div className='wrapper'>
+          <section className='profile'>
+            <div className='profile-icon'>
+              <img src='https://picsum.photos/id/65/4912/3264' alt='profile summoner icon'/>
+            </div>
+            <div className='profile-info'>
+              <ul className='profile-seasons'>
+                <li className='profile-season'>
+                  <b>S2022</b> &nbsp; Master
+                </li>
+                <li className='profile-season'>
+                  <b>S2022</b> &nbsp; Master
+                </li>
+                <li className='profile-season'>
+                  <b>S2022</b> &nbsp; master
+                </li>
+              </ul>
+              <div className='profile-name'></div>
+              <div className='profile-ladderrank'></div>
+              <div className='profile-update'></div>
+              <div className='profile-lastupdated'></div>
+            </div>
+          </section>
+          <nav>
 
-        </nav>
+          </nav>
+        </div>
       </header>
       <main className="grid-container">
         <div className="grid-item inner-grid-left">
