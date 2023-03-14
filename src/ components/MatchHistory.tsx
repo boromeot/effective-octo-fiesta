@@ -21,7 +21,10 @@ const MatchHistory = () => {
               <Spell src='https://picsum.photos/id/57/2448/3264' />
               <Spell src='https://picsum.photos/id/58/1280/853' />
             </div>
-            <div className="runes"></div>
+            <div className="runes">
+              <Rune src="https://picsum.photos/id/59/2464/1632" />
+              <Rune src="https://picsum.photos/id/56/2880/1920" />
+            </div>
           </div>
           <div className="kda"></div>
           <div className="stats"></div>
@@ -43,8 +46,12 @@ function Spell({ src }: {src : string}) {
   )
 }
 
-export default MatchHistory;
-
-function hello() {
-
+function Rune({ src }: {src : string}) {
+  return (
+    <div className="rune">
+      <img src={src} width={22} height={22} />
+    </div>
+  )
 }
+
+export default MatchHistory;

@@ -55,16 +55,22 @@
     font-size: 12px;
   }
 
-  .spells {
+  .spells, .runes {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
     margin-left: 4px;
   }
 
   .spell > img {
     border-radius: 4px;
+  }
+
+  .rune > img {
+    border-radius: 50%;
+  }
+
+  .runes > :nth-child(1) > img {
+    background-color: black;
   }
 
   .champion > .icon > img {
