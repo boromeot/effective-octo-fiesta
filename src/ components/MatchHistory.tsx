@@ -18,7 +18,8 @@ const MatchHistory = () => {
               <span className="level">17</span>
             </div>
             <div className="spells">
-
+              <Spell src='https://picsum.photos/id/57/2448/3264' />
+              <Spell src='https://picsum.photos/id/58/1280/853' />
             </div>
             <div className="runes"></div>
           </div>
@@ -34,4 +35,16 @@ const MatchHistory = () => {
   )
 }
 
+function Spell({ src }: {src : string}) {
+  return (
+    <div className="spell">
+      <img src={src} width={22} height={22} />
+    </div>
+  )
+}
+
 export default MatchHistory;
+
+function hello() {
+
+}
