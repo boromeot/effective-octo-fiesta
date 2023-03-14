@@ -14,7 +14,6 @@
 
 .grid-item {
   color: black;
-  background-color: blanchedalmond;
   text-align: center;
 }
 
@@ -29,6 +28,13 @@
   grid-column: 1 / 2;
 
   align-self: start;
+
+  color: white;
+}
+
+.grid-item-left {
+  border: 1px solid red;
+  background-color: rgb(49, 49, 60);
 }
 
 .inner-grid-right {

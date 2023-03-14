@@ -7,7 +7,7 @@ const SummonerPage = () => {
     <div className="grid-container">
       <div className="grid-item inner-grid-left">
         <div className='grid-item-left'>left 1</div>
-        <div className='grid-item-left left1'>left 2</div>
+        <div className='grid-item-left'>left 2</div>
         <div className='grid-item-left'>left 3</div>
         <div className='grid-item-left'>left 4</div>
         <div className='grid-item-left'>left 5</div>
