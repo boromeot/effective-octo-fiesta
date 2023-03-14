@@ -57,6 +57,10 @@
   font-weight: bold;
 }
 
+.profile-ladderrank {
+  font-size: 12px;
+}
+
 /* MAIN */
 .grid-container {
   display: grid;

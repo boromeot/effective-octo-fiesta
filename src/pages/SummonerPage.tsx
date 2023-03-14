@@ -26,7 +26,11 @@ const SummonerPage = () => {
               <div className='profile-name'>
                 Oxum 
               </div>
-              <div className='profile-ladderrank'></div>
+              <div className='profile-ladderrank'>
+                Ladder Rank&nbsp; 
+                <a href='#'>1,115</a>&nbsp;
+                (0.124% of top)
+              </div>
               <div className='profile-update'></div>
               <div className='profile-lastupdated'></div>
             </div>
