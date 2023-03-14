@@ -3,6 +3,10 @@
   margin: 0 auto;
 }
 
+.divider {
+  border-top: 2px rgb(36, 36, 36) solid;
+}
+
 .content-header {
   border: 1px solid red;
   background-color: rgb(49, 49, 60);
@@ -72,12 +76,18 @@
   color: rgb(175, 175, 185);
 }
 
+/* NAV */
+.profile-nav {
+  padding: 10px 0;
+  font-size: 15px;
+}
+
 /* MAIN */
 .grid-container {
   display: grid;
   grid-template-columns: repeat(3, minmax(10px, 1fr));
   grid-template-rows: minmax(10px, 1fr);
-  grid-gap: 20px;
+  gap: 20px 20px;
   padding: 20px;
 
   height: 100%;

@@ -58,8 +58,11 @@ const SummonerPage = () => {
               </div>
             </div>
           </section>
-          <nav>
-
+        </div>
+        <div className='divider' />
+        <div className='wrapper'>
+          <nav className='profile-nav'>
+            <button><b>Summary</b></button>
           </nav>
         </div>
       </header>
