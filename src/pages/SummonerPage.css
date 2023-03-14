@@ -1,3 +1,30 @@
+.content-header {
+  width: 1080px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid red;
+}
+
+.profile {
+  display: flex;
+
+}
+
+.profile-icon {
+  width: 100px;
+  height: 100px;
+}
+
+.profile-icon > img {
+  height: 100%;
+  width: 100%;
+  border-radius: 20px;
+}
+
+.profile-info {
+
+}
+
 .grid-container {
   display: grid;
   grid-template-columns: repeat(3, minmax(10px, 1fr));
