@@ -7,6 +7,12 @@ const SummonerPage = () => {
     <>
       <header className='content-header'>
         <div className='wrapper'>
+        <form className='header-search'>
+          <input className='header-searchbar' type="text" placeholder='Search Summoner'/>
+          <button type="submit">Search</button>
+        </form>
+        </div>
+        <div className='wrapper'>
           <section className='profile'>
             <div className='profile-icon'>
               <img src='https://picsum.photos/id/65/4912/3264' alt='profile summoner icon'/>
