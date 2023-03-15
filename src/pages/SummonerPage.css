@@ -30,7 +30,7 @@
 
 .profile {
   display: flex;
-  padding: 15px 0;
+  padding: 15px 10px;
 }
 
 .profile-icon {
@@ -94,7 +94,7 @@
 
 /* NAV */
 .profile-nav {
-  padding: 10px 0;
+  padding: 10px 10px;
   font-size: 15px;
 }
 

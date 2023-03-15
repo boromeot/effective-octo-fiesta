@@ -7,10 +7,10 @@ const SummonerPage = () => {
     <>
       <header className='content-header'>
         <div className='wrapper'>
-        <form className='header-search'>
-          <input className='header-searchbar' type="text" placeholder='Search Summoner'/>
-          <button type="submit">Search</button>
-        </form>
+          <form className='header-search'>
+            <input className='header-searchbar' type="text" placeholder='Search Summoner'/>
+            <button type="submit">Search</button>
+          </form>
         </div>
         <div className='wrapper'>
           <section className='profile'>
@@ -83,13 +83,6 @@ const SummonerPage = () => {
         <div className="grid-item inner-grid-right">
           <div className='matchHistory'>item 1</div>
           <div className='matchHistory'>item 2</div>
-          <MatchHistory />
-          <MatchHistory />
-          <MatchHistory />
-          <MatchHistory />
-          <MatchHistory />
-          <MatchHistory />
-          <MatchHistory />
         </div>
       </main>
     </>
