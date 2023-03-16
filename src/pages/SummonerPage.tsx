@@ -7,7 +7,7 @@ const SummonerPage = () => {
     <>
       <header className='profile-header'>
         <a className='logo' href='#'><img src='' alt='Logo' /></a>
-        <input className='summoner-search' type='text' />
+        <input className='summoner-search' type='text' placeholder='Search Summoner'/>
         <div className='mode-toggle'>
           <div className='light-mode'>LM</div>
           <div className="divider">|</div>

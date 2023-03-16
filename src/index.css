@@ -5,10 +5,11 @@
   --fw-normal: 400;
   --fw-bold: 700;
 
-  --clr-primary: #8EF2FF;
-  --clr-secondary: #E36E40;
-  --clr-light: #FFF;
-  --clr-dark: #161819;
+  --clr-primary: #0d0d28;
+  --clr-secondary: #0d0d28;
+  --clr-light: #eee;
+  --clr-dark-100: rgb(7, 7, 32);
+  --clr-dark-200: rgb(15, 15, 42);
 }
 
 *, *::before, *::after {
@@ -23,7 +24,8 @@ body {
 
 body, h1, h2, h3, p {
   margin: 0;
-  background-color: var(--clr-dark);
+  background-color: var(--clr-dark-100);
+  color: var(--clr-light);
 }
 
 input:focus,
@@ -37,4 +39,8 @@ ul, li {
   padding: 0;
   margin: 0;
   list-style: none;
+}
+
+input {
+  border: none;
 }
