@@ -6,12 +6,12 @@ const SummonerPage = () => {
   return (
     <>
       <header className='profile-header'>
-        <a href='#'><img src='' alt='Logo' /></a>
+        <a className='logo' href='#'><img src='' alt='Logo' /></a>
         <input className='summoner-search' type='text' />
         <div className='mode-toggle'>
-          <div className='light-mode'></div>
-          <div className="divider"></div>
-          <div className='dark-mode'></div>
+          <div className='light-mode'>LM</div>
+          <div className="divider">|</div>
+          <div className='dark-mode'>DM</div>
         </div>
       </header>
 
@@ -43,7 +43,25 @@ const SummonerPage = () => {
         </section>
 
 
-        <section></section>
+        <section>
+          <div className="container">
+            <div className="even-columns">
+              <div> {/* Left Column */} 
+                <div className='ranked-solo'></div>
+                <div className='ranked-flex'></div>
+                <div className='champion-stats'></div>
+                <div className='recently-played'></div>
+              </div>
+              <div> {/* Right Column */} 
+                <div className='match-search'></div>
+                <div className='match-stats'></div>
+                <div className='matches'>
+                  <div className="match"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
 
 
