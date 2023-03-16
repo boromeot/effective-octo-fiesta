@@ -1,20 +1,24 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  --ff-primary: 'Roboto Slab', serif;
+  --ff-secondary: 'Neuton', serif;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #040421;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+  --fw-normal: 400;
+  --fw-bold: 700;
+
+  --clr-primary: #8EF2FF;
+  --clr-secondary: #E36E40;
+  --clr-light: #FFF;
+  --clr-dark: #161819;
 }
 
 *, *::before, *::after {
   box-sizing: border-box;
+}
+
+body {
+  font-family: var(--ff-primary);
+  font-size: 1.25rem;
+  line-height: 1.5;
 }
 
 body, h1, h2, h3, p {
