@@ -23,6 +23,7 @@ body {
 
 body, h1, h2, h3, p {
   margin: 0;
+  background-color: var(--clr-dark);
 }
 
 input:focus,
