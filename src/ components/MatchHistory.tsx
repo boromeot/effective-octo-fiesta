@@ -33,6 +33,19 @@ const MatchHistory = () => {
 
         </div>
       </div>
+      <div className="items">
+        <div className="main-items">
+          <div className="item"><img src="https://picsum.photos/id/1/200/300"/></div>
+          <div className="item"><img src="https://picsum.photos/id/1/200/300"/></div>
+          <div className="item"><img src="https://picsum.photos/id/1/200/300"/></div>
+          <div className="item"><img src="https://picsum.photos/id/1/200/300"/></div>
+          <div className="item"><img src="https://picsum.photos/id/1/200/300"/></div>
+          <div className="item"><img src="https://picsum.photos/id/1/200/300"/></div>
+        </div>
+        <div className="item">
+          <img src="https://picsum.photos/id/1/200/300" />
+        </div>
+      </div>
       <div className="participants">participants</div>
     </div>
   )

@@ -3,6 +3,7 @@ import './SummonerPageHeader.css';
 import './SummonerPageProfile.css';
 import PreviousRank from '../ components/PreviousRank/PreviousRank';
 import ChampPerformance from '../ components/ChampPerformance/ChampPerformance';
+import MatchHistory from '../ components/MatchHistory';
 
 const SummonerPage = () => {
   return (
@@ -105,13 +106,16 @@ const SummonerPage = () => {
                 <div className='recently-played'>RECENTLY PLAYED</div>
               </div>
               <div className='overview-main'> {/* Right Column */} 
-                <div className='match-search'>SEARCH</div>
+                <div className='match-search champion-stats-title'>
+                  <div><b>Match History</b></div>
+                  <input />
+                </div>
                 <div className='match-stats'>MATCH STATS</div>
                 <div className='matches'>
-                  <div className="match">MATCH</div>
-                  <div className="match">MATCH</div>
-                  <div className="match">MATCH</div>
-                  <div className="match">MATCH</div>
+                  <MatchHistory />
+                  <MatchHistory />
+                  <MatchHistory />
+                  <MatchHistory />
                 </div>
               </div>
             </div>

@@ -84,3 +84,9 @@
   padding-bottom: 12px;
   font-size: 15px;
 }
+
+.matches {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
