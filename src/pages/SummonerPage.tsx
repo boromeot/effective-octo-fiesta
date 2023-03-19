@@ -28,21 +28,22 @@ const SummonerPage = () => {
                 <PreviousRank season={'S7'}rank={'Gold'}/>
                 <PreviousRank season={'S6'}rank={'Silver'}/>
                 <PreviousRank season={'S5'}rank={'Bronze'}/>
-                <PreviousRank season={'S4'}rank={'Iron'}/>
+                {/* <PreviousRank season={'S4'}rank={'Iron'}/>
                 <PreviousRank season={'S3'}rank={'Iron'}/>
                 <PreviousRank season={'S2'}rank={'Iron'}/>
-                <PreviousRank season={'S1'}rank={'Iron'}/>
+                <PreviousRank season={'S1'}rank={'Iron'}/> */}
               </ul>
               <div className='profile-info'>
                 <img className='summoner-icon' src="https://picsum.photos/id/40/4106/2806" alt="summoner icon" />
-                <div>
-                  <div>Name</div>
-                  <div>Ladder Rank</div>
+                <div className='summoner-info'>
+                  <div className='summoner-name'>Oxum</div>
+                  <div className='summoner-rank'>Ladder Rank 1,080 (top 0.2788%)</div>
                   <button>Update</button>
                 </div>
               </div>
               <nav className='profile-nav'>
                 <a href="#">Overview</a>
+                <a href="#">Live Game</a>
               </nav>
             </div>
           </div>
