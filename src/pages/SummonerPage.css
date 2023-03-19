@@ -12,7 +12,7 @@
   grid-template-columns: 1fr;
 }
 
-@media (min-width: 599px) {
+@media (min-width: 699px) {
   .even-columns {
     grid-auto-flow: column;
     grid-auto-columns: 2fr;
@@ -50,7 +50,6 @@
   justify-content: space-between;
   font-size: 12px;
   width: 100%;
-
 }
 
 .rank-text {
