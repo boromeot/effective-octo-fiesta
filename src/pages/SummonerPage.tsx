@@ -1,6 +1,5 @@
 import './SummonerPage.css';
-import Icon from "../ components/Icon";
-import MatchHistory from "../ components/MatchHistory";
+import PreviousRank from '../ components/PreviousRank/PreviousRank';
 
 const SummonerPage = () => {
   return (
@@ -20,13 +19,18 @@ const SummonerPage = () => {
         <section>
           <div className="container">
             <ul className='previous-ranks'>
-              <li>S12 Master</li>
-              <li>S11 Diamond</li>
-              <li>S10 Diamond</li>
-              <li>S9 Diamond</li>
-              <li>S8 Diamond</li>
-              <li>S7 Platinum</li>
-              <li>S6 Platinum</li>
+              <PreviousRank season={'S12'}rank={'Challenger'}/>
+              <PreviousRank season={'S11'}rank={'Grandmaster'}/>
+              <PreviousRank season={'S10'}rank={'Master'}/>
+              <PreviousRank season={'S9'}rank={'Diamond'}/>
+              <PreviousRank season={'S8'}rank={'Platinum'}/>
+              <PreviousRank season={'S7'}rank={'Gold'}/>
+              <PreviousRank season={'S6'}rank={'Silver'}/>
+              <PreviousRank season={'S5'}rank={'Bronze'}/>
+              <PreviousRank season={'S4'}rank={'Iron'}/>
+              <PreviousRank season={'S3'}rank={'Iron'}/>
+              <PreviousRank season={'S2'}rank={'Iron'}/>
+              <PreviousRank season={'S1'}rank={'Iron'}/>
             </ul>
             <div className='profile-info'>
               <img src="" alt="summoner icon" />

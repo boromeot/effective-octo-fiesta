@@ -59,3 +59,10 @@
   display: flex;
   gap: 5px;
 }
+
+
+.previous-ranks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}

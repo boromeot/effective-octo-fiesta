@@ -1,0 +1,13 @@
+.previous-rank {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  font-size: 11px;
+
+  background-color: #25254b;
+}
+
+.previous-season-text {
+  color: var(--clr-light);
+}
