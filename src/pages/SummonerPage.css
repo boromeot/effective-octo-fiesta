@@ -13,7 +13,7 @@
   margin-top: 20px;
 }
 
-@media (min-width: 699px) {
+@media (min-width: 899px) {
   .even-columns {
     grid-auto-flow: column;
     grid-auto-columns: 2fr;
@@ -71,11 +71,11 @@
   align-items: flex-end;
 }
 
-
 .champion-stats {
-
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
-
 
 .champion-stats-title {
   display: flex;

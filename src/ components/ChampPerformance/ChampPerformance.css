@@ -1,0 +1,42 @@
+.ChampPerformance {
+  display: flex;
+}
+
+.ChampPerformance-img {
+  height: 48px;
+  width: 48px;
+  margin-right: 12px;
+}
+
+.ChampPerformance-stats {
+  display: grid;
+  grid-template-columns: .7fr .6fr .6fr;
+  flex: 1 1;
+}
+
+.Champ-kda {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Champ-kda-split, .Champ-games-played {
+  color: rgb(214, 214, 255);
+}
+
+.Champ-kda-split {
+  display: flex;
+  gap: 8px;
+  font-size: 11px;
+}
+
+.Champ-games {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+}
+
+.Champ-games-played {
+  font-size: 11px;
+}
