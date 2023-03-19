@@ -38,12 +38,12 @@ const SummonerPage = () => {
                 <div className='summoner-info'>
                   <div className='summoner-name'>Oxum</div>
                   <div className='summoner-rank'>Ladder Rank 1,080 (top 0.2788%)</div>
-                  <button>Update</button>
+                  <button className='summoner-update'>Update</button>
                 </div>
               </div>
               <nav className='profile-nav'>
-                <a href="#">Overview</a>
-                <a href="#">Live Game</a>
+                <a className='profile-link active' href="#">Overview</a>
+                <a className='profile-link' href="#">Live Game</a>
               </nav>
             </div>
           </div>

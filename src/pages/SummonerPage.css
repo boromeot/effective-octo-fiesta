@@ -99,6 +99,28 @@
   font-size: 10px;
 }
 
+.summoner-update {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  min-height: 36px;
+  min-width: 80px;
+  
+  padding: 0 20px;
+
+  background-color: #3273fa;
+  border: none;
+  border-radius: 4px;
+
+  color: var(--clr-light);
+  font-weight: bold;
+}
+
+.summoner-update:hover {
+  cursor: pointer;
+}
+
 @media (min-width: 599px) {
   .summoner-icon {
     width: 95px;
@@ -108,4 +130,34 @@
   .summoner-name {
     font-size: 36px;
   }
+}
+
+.profile-nav {
+  display: flex;
+  gap: 10px;
+
+  margin-top: 10px;
+}
+
+.profile-link {
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--clr-light);
+}
+
+.active {
+  display: flex;
+  align-items: center;
+  color: #3273fa;
+  position: relative;
+}
+
+.active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  border-radius: 2px;
+  background-color: #3273fa;
 }
