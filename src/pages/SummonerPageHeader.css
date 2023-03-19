@@ -1,0 +1,34 @@
+.profile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 65px;
+  background-color: var(--clr-dark-100);
+
+  top: 0;
+  position: sticky;
+
+  padding: 0 19px;
+
+  border-bottom: var(--clr-dark-200) 1px solid;
+}
+
+.summoner-search {
+  background-color: var(--clr-dark-200);
+  color: var(--clr-light);
+
+  padding-left: 12px;
+  padding-right: 64px;
+  margin: 0 10px;
+
+  min-height: 36px;
+  min-width: 100px;  
+
+  border-radius: 2px;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,.25));
+}
+
+.mode-toggle {
+  display: flex;
+  gap: 5px;
+}

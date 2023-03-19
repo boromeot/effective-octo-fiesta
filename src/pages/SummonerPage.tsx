@@ -1,4 +1,6 @@
 import './SummonerPage.css';
+import './SummonerPageHeader.css';
+import './SummonerPageProfile.css';
 import PreviousRank from '../ components/PreviousRank/PreviousRank';
 
 const SummonerPage = () => {
@@ -54,16 +56,19 @@ const SummonerPage = () => {
           <div className="container">
             <div className="even-columns">
               <div> {/* Left Column */} 
-                <div className='ranked-solo'></div>
-                <div className='ranked-flex'></div>
-                <div className='champion-stats'></div>
-                <div className='recently-played'></div>
+                <div className='ranked-solo'>SOLO</div>
+                <div className='ranked-flex'>FLEX</div>
+                <div className='champion-stats'>CHAMP STATS</div>
+                <div className='recently-played'>RECENTLY PLAYED</div>
               </div>
               <div> {/* Right Column */} 
-                <div className='match-search'></div>
-                <div className='match-stats'></div>
+                <div className='match-search'>SEARCH</div>
+                <div className='match-stats'>MATCH STATS</div>
                 <div className='matches'>
-                  <div className="match"></div>
+                  <div className="match">MATCH</div>
+                  <div className="match">MATCH</div>
+                  <div className="match">MATCH</div>
+                  <div className="match">MATCH</div>
                 </div>
               </div>
             </div>
