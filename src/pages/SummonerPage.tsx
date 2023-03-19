@@ -55,13 +55,43 @@ const SummonerPage = () => {
         <section>
           <div className="container">
             <div className="even-columns">
-              <div> {/* Left Column */} 
-                <div className='ranked-solo'>SOLO</div>
-                <div className='ranked-flex'>FLEX</div>
+              <div className='overview-side'> {/* Left Column */} 
+                <div className='ranked-container'>
+                  <div>Ranked Solo</div>
+                  <div className='ranked-content'>
+                    <img className='rank-img' src='https://picsum.photos/id/24/4855/1803'/>
+                    <div className='ranked-info'>
+                        <div className='rank-text'>
+                          <span>Master</span>
+                          <span>482 LP</span>
+                        </div>
+                        <div className='rank-wins'>
+                          <span>119W 95L</span>
+                          <span>56% Win Rate</span>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+                <div className='ranked-container'>
+                  <div>Ranked Flex</div>
+                  <div className='ranked-content'>
+                    <img className='rank-img' src='https://picsum.photos/id/24/4855/1803'/>
+                    <div className='ranked-info'>
+                        <div className='rank-text'>
+                          <span>Master</span>
+                          <span>482 LP</span>
+                        </div>
+                        <div className='rank-wins'>
+                          <span>119W 95L</span>
+                          <span>56% Win Rate</span>
+                        </div>
+                    </div>
+                  </div>
+                </div>
                 <div className='champion-stats'>CHAMP STATS</div>
                 <div className='recently-played'>RECENTLY PLAYED</div>
               </div>
-              <div> {/* Right Column */} 
+              <div className='overview-main'> {/* Right Column */} 
                 <div className='match-search'>SEARCH</div>
                 <div className='match-stats'>MATCH STATS</div>
                 <div className='matches'>
