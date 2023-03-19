@@ -2,15 +2,6 @@ import { useEffect, useState } from 'react';
 import './PreviousRank.css';
 
 const PreviousRank = ({ season, rank }: {season: string, rank : string}) => {
-  // interface ColorPicker {
-  //   [Master: string] : VoidFunction,
-  //   [Diamond: string] : VoidFunction,
-  // }
-  
-  // const dict: ColorPicker = {
-    //   'Master': () => setColor('red'),
-    // };
-    
   const [color, setColor] = useState('');  
   useEffect(() => {
     switch (rank) {
@@ -23,8 +14,7 @@ const PreviousRank = ({ season, rank }: {season: string, rank : string}) => {
       case 'Silver': setColor('#b9b9b9'); break;    
       case 'Bronze': setColor('#cd7f32'); break;    
       case 'Iron': setColor('#CBCDCD'); break;    
-      default:
-        break;
+      default: break;
     }
   }, [])
 
