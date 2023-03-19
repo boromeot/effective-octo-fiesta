@@ -88,7 +88,17 @@ const SummonerPage = () => {
                     </div>
                   </div>
                 </div>
-                <div className='champion-stats'>CHAMP STATS</div>
+                <div className='champion-stats'>
+                  <div className='champion-stats-title'>
+                    <div>Champion Stats</div>
+                    <div>All Ranked</div>
+                  </div>
+                  <div className="champion-stat"></div>
+                  <div className="champion-stat"></div>
+                  <div className="champion-stat"></div>
+                  <div className="champion-stat"></div>
+                  <div className="champion-stat"></div>
+                </div>
                 <div className='recently-played'>RECENTLY PLAYED</div>
               </div>
               <div className='overview-main'> {/* Right Column */} 

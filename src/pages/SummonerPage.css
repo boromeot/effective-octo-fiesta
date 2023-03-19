@@ -10,6 +10,7 @@
   display: grid;
   gap: 11px;  
   grid-template-columns: 1fr;
+  margin-top: 20px;
 }
 
 @media (min-width: 699px) {
@@ -25,13 +26,18 @@
   gap: 11px;
 }
 
+.overview-side > * {
+  border-radius: 4px;
+  background-color: var(--clr-dark-200);
+  padding: 14px;
+}
+
 .overview-main {
   display: flex;
   flex-direction: column;
 }
 
-.rank-container {
-  padding: 18px;
+.ranked-container {
   font-size: 14px;
 }
 
@@ -63,4 +69,15 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-end;
+}
+
+
+.champion-stats {
+
+}
+
+
+.champion-stats-title {
+  display: flex;
+  justify-content: space-between;
 }
