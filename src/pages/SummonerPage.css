@@ -60,9 +60,30 @@
   gap: 5px;
 }
 
+.profile-container {
+  margin-top: 30px;
+}
 
 .previous-ranks {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+  margin-bottom: 24px;
+}
+
+.profile-info {
+
+}
+
+.summoner-icon {
+  width: 75px;
+  height: 75px;
+  border-radius: 4px;
+}
+
+@media (min-width: 599px) {
+  .summoner-icon {
+    width: 95px;
+    height: 95px;
+  }
 }

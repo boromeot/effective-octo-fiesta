@@ -18,31 +18,33 @@ const SummonerPage = () => {
       <main className=''>
         <section>
           <div className="container">
-            <ul className='previous-ranks'>
-              <PreviousRank season={'S12'}rank={'Challenger'}/>
-              <PreviousRank season={'S11'}rank={'Grandmaster'}/>
-              <PreviousRank season={'S10'}rank={'Master'}/>
-              <PreviousRank season={'S9'}rank={'Diamond'}/>
-              <PreviousRank season={'S8'}rank={'Platinum'}/>
-              <PreviousRank season={'S7'}rank={'Gold'}/>
-              <PreviousRank season={'S6'}rank={'Silver'}/>
-              <PreviousRank season={'S5'}rank={'Bronze'}/>
-              <PreviousRank season={'S4'}rank={'Iron'}/>
-              <PreviousRank season={'S3'}rank={'Iron'}/>
-              <PreviousRank season={'S2'}rank={'Iron'}/>
-              <PreviousRank season={'S1'}rank={'Iron'}/>
-            </ul>
-            <div className='profile-info'>
-              <img src="" alt="summoner icon" />
-              <div>
-                <div>Name</div>
-                <div>Ladder Rank</div>
-                <button>Update</button>
+            <div className="profile-container">
+              <ul className='previous-ranks'> {/* UL should only render if the summoner has previous ranks*/}
+                <PreviousRank season={'S12'}rank={'Challenger'}/>
+                <PreviousRank season={'S11'}rank={'Grandmaster'}/>
+                <PreviousRank season={'S10'}rank={'Master'}/>
+                <PreviousRank season={'S9'}rank={'Diamond'}/>
+                <PreviousRank season={'S8'}rank={'Platinum'}/>
+                <PreviousRank season={'S7'}rank={'Gold'}/>
+                <PreviousRank season={'S6'}rank={'Silver'}/>
+                <PreviousRank season={'S5'}rank={'Bronze'}/>
+                <PreviousRank season={'S4'}rank={'Iron'}/>
+                <PreviousRank season={'S3'}rank={'Iron'}/>
+                <PreviousRank season={'S2'}rank={'Iron'}/>
+                <PreviousRank season={'S1'}rank={'Iron'}/>
+              </ul>
+              <div className='profile-info'>
+                <img className='summoner-icon' src="https://picsum.photos/id/40/4106/2806" alt="summoner icon" />
+                <div>
+                  <div>Name</div>
+                  <div>Ladder Rank</div>
+                  <button>Update</button>
+                </div>
               </div>
+              <nav className='profile-nav'>
+                <a href="#">Overview</a>
+              </nav>
             </div>
-            <nav className='profile-nav'>
-              <a href="#">Overview</a>
-            </nav>
           </div>
         </section>
 
