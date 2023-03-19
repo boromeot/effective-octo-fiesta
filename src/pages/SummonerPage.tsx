@@ -91,7 +91,7 @@ const SummonerPage = () => {
                 </div>
                 <div className='champion-stats'>
                   <div className='champion-stats-title'>
-                    <div>Champion Stats</div>
+                    <div><b>Champion Stats</b></div>
                     <div>All Ranked</div>
                   </div>
                   <ChampPerformance />
