@@ -23,7 +23,20 @@ const MatchHistory = () => {
         </div>
 
       </div>
-      <div className="col-2"></div>
+      <div className="col-2">
+        <div className="champion">
+          <img src="https://picsum.photos/id/34/3872/2592"/>
+          <div className="level">16</div>
+        </div>
+        <div className="summoner-spell">
+          <img src="https://picsum.photos/id/35/3872/2592" />
+          <img src="https://picsum.photos/id/35/3872/2592" />
+        </div>
+        <div className="runes">
+          <img src="https://picsum.photos/id/37/3872/2592" />
+          <img src="https://picsum.photos/id/37/3872/2592" />
+        </div>
+      </div>
       <div className="col-3"></div>
       <div className="col-4"></div>
       <div className="col-5"></div>
