@@ -37,7 +37,12 @@ const MatchHistory = () => {
           <img src="https://picsum.photos/id/37/3872/2592" />
         </div>
       </div>
-      <div className="col-3"></div>
+      <div className="col-3">
+        <div className="kda-totals">2 / <span className="deaths">3</span> / 1</div>
+        <div className="kda-ratio">1.00 KDA</div>
+        <div className="large-cs">122 CS (6.3)</div>
+        <div className="vision-score">9 vision</div>
+      </div>
       <div className="col-4"></div>
       <div className="col-5"></div>
     </div>

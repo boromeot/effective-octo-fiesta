@@ -1,12 +1,6 @@
 .matchHistory-large {
   display: grid;
-  grid-template-columns: 18% 30% 18% minmax(124px,31%) 18px;
-}
-
-.col-2 {
-  display: flex;
-  align-items: center;
-  gap: 5px;
+  grid-template-columns: 18% 19% 18% minmax(124px,31%) 18px;
 }
 
 .row-1, .row-2 {
@@ -23,6 +17,14 @@
 .row-3 {
   display: flex;
   justify-content: center;
+}
+
+
+/* ========= COL 2 =========*/
+.col-2 {
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
 .champion, .champion > img {
@@ -55,3 +57,17 @@
   border-radius: 3px;
 }
 
+/* ========= COL 3 =========*/
+.col-3 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.kda-totals {
+
+}
+
+.deaths {
+  color: rgb(219, 67, 67);
+}
