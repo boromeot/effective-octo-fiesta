@@ -1,12 +1,18 @@
 
 
-.matchHistory {
+.matchHistory-small {
   --lost: linear-gradient(0deg,rgba(255,78,80,.16),rgba(255,78,80,.16));
   --win: linear-gradient(0deg,rgba(50,115,250,.2),rgba(50,115,250,.2));
 
   padding: 6px 8px;
   background: var(--lost);
   border-radius: 5px;
+}
+
+@media (min-width: 600px) {
+    .matchHistory-small {
+      display: none;
+    }
 }
 
 .matchResult {

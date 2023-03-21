@@ -110,8 +110,14 @@ const SummonerPage = () => {
                   <div><b>Match History</b></div>
                   <input />
                 </div>
-                <div className='match-stats'>MATCH STATS</div>
+                <div className='match-stats'></div>
                 <div className='matches'>
+                  <MatchHistory />
+                  <MatchHistory />
+                  <MatchHistory />
+                  <MatchHistory />
+                  <MatchHistory />
+                  <MatchHistory />
                   <MatchHistory />
                   <MatchHistory />
                   <MatchHistory />
