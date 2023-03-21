@@ -1,61 +1,47 @@
 import "./MatchHistory.css";
 
 const MatchHistory = () => {
+
+  const small = (
+    <div></div>
+  )
+
+
   return (
     <div className="matchHistory">
-      <div className="game">
-        <div className="type">Ranked Solo</div>
-        <div className="timestamp">a day ago</div>
-        <div>-------</div>
-        <div className="result">Victory</div>
-        <div className="duration">35m 12s</div>
+      <div className="matchResult">
+        <div>WIN </div>
+        <div className="matchType">
+          <b>Ranked Solo</b>
+          <span>21 hours ago</span>
+        </div>
       </div>
-      <div className="info">
-        <div>
-          <div className="champion">
-            <div className="icon">
-              <img src='https://picsum.photos/id/237/200/300' width={48} height={48}/>
-              <span className="level">17</span>
-            </div>
-            <div className="spells">
-              <Spell src='https://picsum.photos/id/57/2448/3264' />
-              <Spell src='https://picsum.photos/id/58/1280/853' />
-            </div>
-            <div className="runes">
-              <Rune src="https://picsum.photos/id/59/2464/1632" />
-              <Rune src="https://picsum.photos/id/56/2880/1920" />
-            </div>
+      <div className="matchDetails">
+        <div className="champDetails">
+          <img src="https://picsum.photos/id/30/1280/901"/>
+          <div className="champSums">
+            <img className="champSum" src="https://picsum.photos/id/31/1280/901"/>
+            <img className="champSum" src="https://picsum.photos/id/31/1280/901"/>
           </div>
-          <div className="kda"></div>
-          <div className="stats"></div>
         </div>
-        <div>
+        <div className="matchStats"></div>
+      </div>
+    </div>
+  )
+}
 
-        </div>
-      </div>
-      <div className="items">
-        <div className="main-items">
-          <div className="item"><img src="https://picsum.photos/id/1/200/300"/></div>
-          <div className="item"><img src="https://picsum.photos/id/1/200/300"/></div>
-          <div className="item"><img src="https://picsum.photos/id/1/200/300"/></div>
-          <div className="item"><img src="https://picsum.photos/id/1/200/300"/></div>
-          <div className="item"><img src="https://picsum.photos/id/1/200/300"/></div>
-          <div className="item"><img src="https://picsum.photos/id/1/200/300"/></div>
-        </div>
-        <div className="item">
-          <img src="https://picsum.photos/id/1/200/300" />
-        </div>
-      </div>
-      <div className="participants">participants</div>
+function TeamMate({ src }: {src : string}) {
+  return (
+    <div className="teammate">
+      <img className="teammate-img" src={src} />
+      <div className="teammate-name">WHY PP HARD 808</div>
     </div>
   )
 }
 
 function Spell({ src }: {src : string}) {
   return (
-    <div className="spell">
-      <img src={src} width={22} height={22} />
-    </div>
+    <img src={src} />
   )
 }
 

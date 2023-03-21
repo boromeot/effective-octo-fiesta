@@ -1,101 +1,35 @@
 .matchHistory {
-  display: flex;
-
-  justify-content: space-between;
-  align-items: center;
-  padding: 8px 8px 8px 12px;
-
-  background-color: var(--clr-dark-200);
+  padding: 6px 8px;
 }
 
-/* GAME */
-  .game {
-    display: flex;
+.matchResult {
+  display: flex;
+  justify-content: space-between;
+}
 
-    flex-direction: column;
-    justify-content: center;
+.matchType {
+  display: flex;
+  gap: 5px;
+}
 
-    font-size: 12px;
-  }
+.champDetails {
+  display: flex;
+}
 
-  .type, .result {
-    font-weight: bold;
-  }
+.champDetails > img {
+  height: 52px;
+  width: 52px;
+  border-radius: 2px;
+}
 
-/* INFO */
-  .info {
+.champSums {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
-  }
-
-  .champion {
-    display: flex;
-    align-items: center;
-  }
-
-  .icon {
-    position: relative;
-  }
-
-  .level {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    position: absolute;
-    bottom: 0;
-    right: 0;
-
-    color: white;
-    background: rgb(32, 45, 55);
-    border-radius: 50%;
-
-    width: 20px;
-    height: 20px;
-
-    font-size: 12px;
-  }
-
-  .spells, .runes {
-    display: flex;
-    flex-direction: column;
-    margin-left: 4px;
-  }
-
-  .spell > img {
-    border-radius: 4px;
-  }
-
-  .rune > img {
-    border-radius: 50%;
-  }
-
-  .runes > :nth-child(1) > img {
-    background-color: black;
-  }
-
-  .champion > .icon > img {
-    display: block;
-    border-radius: 50%;
-  }
-
-
-/* ITEMS ============================= */
-  .items {
-    display: flex;
-    gap: 2px;
-  }
-
-  .main-items {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 2px;
-  }
-
-  .item, .item > img {
-    width: 22px;
-    height: 22px;
-    background-color: blanchedalmond;
-  }
-
-
-/* PARTICIPANTS */
+.champSum {
+  width: 22px;
+  height: 22px;
+  border-radius: 2px;
+}
