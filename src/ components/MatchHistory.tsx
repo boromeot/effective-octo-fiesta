@@ -43,7 +43,21 @@ const MatchHistory = () => {
         <div className="large-cs">122 CS (6.3)</div>
         <div className="vision-score">9 vision</div>
       </div>
-      <div className="col-4"></div>
+      <div className="col-4">
+        <div className="items">
+          <div className="main-items">
+            <Item src="https://picsum.photos/id/34/1280/901" />
+            <Item src="https://picsum.photos/id/34/1280/901" />
+            <Item src="https://picsum.photos/id/34/1280/901" />
+            <Item src="https://picsum.photos/id/34/1280/901" />
+            <Item src="https://picsum.photos/id/34/1280/901" />
+            <Item src="https://picsum.photos/id/34/1280/901" />
+          </div>
+          <div className="trinket">
+            <Item src="https://picsum.photos/id/34/1280/901" />
+          </div>
+        </div>
+      </div>
       <div className="col-5"></div>
     </div>
   )

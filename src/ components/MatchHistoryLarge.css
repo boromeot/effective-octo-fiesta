@@ -1,6 +1,6 @@
 .matchHistory-large {
   display: grid;
-  grid-template-columns: 18% 19% 18% minmax(124px,31%) 18px;
+  grid-template-columns: repeat(5, 1fr);
 }
 
 .row-1, .row-2 {
@@ -64,10 +64,26 @@
   align-items: center;
 }
 
-.kda-totals {
-
-}
-
 .deaths {
   color: rgb(219, 67, 67);
 }
+
+
+/* ========= COL 4 ========= */
+.col-4 {
+  display: flex;
+  align-items: center;
+}
+
+.items {
+  display: flex;
+  gap: 4px;
+}
+
+.main-items {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 4px;
+}
+
