@@ -18,13 +18,33 @@ const MatchHistory = () => {
       </div>
       <div className="matchDetails">
         <div className="champDetails">
-          <img src="https://picsum.photos/id/30/1280/901"/>
+          <img className="champIcon" src="https://picsum.photos/id/30/1280/901"/>
           <div className="champSums">
             <img className="champSum" src="https://picsum.photos/id/31/1280/901"/>
             <img className="champSum" src="https://picsum.photos/id/31/1280/901"/>
           </div>
+          <div className="champRunes">
+            <img className="champRune" src="https://picsum.photos/id/32/1280/901"/>
+            <img className="champRune" src="https://picsum.photos/id/32/1280/901"/>
+          </div>
         </div>
-        <div className="matchStats"></div>
+        <div className="matchStats">
+          <div>
+            <div className="items">
+              <Item src="https://picsum.photos/id/34/1280/901" />
+              <Item src="https://picsum.photos/id/34/1280/901" />
+              <Item src="https://picsum.photos/id/34/1280/901" />
+              <Item src="https://picsum.photos/id/34/1280/901" />
+              <Item src="https://picsum.photos/id/34/1280/901" />
+              <Item src="" />
+            </div>
+          </div>
+          <div className="KDA-container">
+            <div className="KDA">6 / 1 / 2</div>
+            <div className="KDA-ratio">8.00 KDA</div>
+            <div className="cs">169 CS (7.9)</div>
+          </div>
+        </div>
       </div>
     </div>
   )
@@ -39,16 +59,12 @@ function TeamMate({ src }: {src : string}) {
   )
 }
 
-function Spell({ src }: {src : string}) {
+function Item({ src }: {src : string | undefined}) {
   return (
-    <img src={src} />
-  )
-}
-
-function Rune({ src }: {src : string}) {
-  return (
-    <div className="rune">
-      <img src={src} width={22} height={22} />
+    <div className="item-container">
+      {
+        src && <img className='item' src={ src }/>
+      }
     </div>
   )
 }
