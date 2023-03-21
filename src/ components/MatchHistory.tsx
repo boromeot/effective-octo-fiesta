@@ -40,9 +40,9 @@ const MatchHistory = () => {
             </div>
           </div>
           <div className="KDA-container">
-            <div className="KDA">6 / 1 / 2</div>
+            <div className="KDA">6 / <span className="deaths">1</span> / 2</div>
             <div className="KDA-ratio">8.00 KDA</div>
-            <div className="cs">169 CS (7.9)</div>
+            <div className="cs"><span className="cs-total">125 </span> CS (7.9)</div>
           </div>
         </div>
       </div>

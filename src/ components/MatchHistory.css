@@ -21,8 +21,8 @@
 }
 
 .matchDetails {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  justify-content: space-between;
 }
 
 .matchStats {
@@ -78,6 +78,16 @@
 .KDA-container {
   display: flex;
   justify-content: space-between;
+  gap: 8px;
   font-size: 11px;
   width: 100%;
+}
+
+.deaths {
+  color: red;
+}
+
+.cs-total {
+  font-weight: bold;
+  color: white;
 }
