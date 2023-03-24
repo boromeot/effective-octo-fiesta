@@ -5,6 +5,7 @@
   padding: 6px 8px;
   background: var(--lost);
   border-radius: 5px;
+  display: none;
 }
 .matchResult {
   display: flex;

@@ -123,7 +123,6 @@ const MatchHistory = () => {
 
   return (
     <>
-      {small}
       {large}
     </>
   )

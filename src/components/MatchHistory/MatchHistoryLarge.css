@@ -1,5 +1,5 @@
 .matchHistory-large {
-  display: none;
+  display: grid;
   grid-template-columns: 1fr 1fr .6fr .8fr 1fr;
 }
 

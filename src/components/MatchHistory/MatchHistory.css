@@ -1,11 +1,22 @@
-@media (min-width: 600px) {
-    .matchHistory-small {
+@media (max-width: 600px) {
+    .matchHistory-large {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .col-3 {
+      align-items: center;
+    }
+    .col-5 {
       display: none;
     }
+}
 
-    .matchHistory-large {
-      display: grid;
-    }
+@media (max-width: 420px) {
+  .matchHistory-large {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .col-4 {
+    display: none;
+  }
 }
 
 .items {
