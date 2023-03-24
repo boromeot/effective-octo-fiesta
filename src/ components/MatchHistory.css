@@ -13,6 +13,10 @@
     .matchHistory-small {
       display: none;
     }
+
+    .matchHistory-large {
+      display: grid;
+    }
 }
 
 .matchResult {

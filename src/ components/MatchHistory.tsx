@@ -1,5 +1,5 @@
-import "./MatchHistory.css";
 import "./MatchHistoryLarge.css";
+import "./MatchHistory.css";
 
 const MatchHistory = () => {
 
