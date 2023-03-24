@@ -40,7 +40,7 @@ const SummonerPage = () => {
               <div className='profile-info'>
                 <img className='summoner-icon' src="https://picsum.photos/id/40/4106/2806" alt="summoner icon" />
                 <div className='summoner-info'>
-                  <div className='summoner-name'>Oxum</div>
+                  <div className='summoner-name'>NAME</div>
                   <div className='summoner-rank'>Ladder Rank 1,080 (top 0.2788%)</div>
                   <button className='summoner-update'>Update</button>
                 </div>

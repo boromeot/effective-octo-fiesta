@@ -58,7 +58,22 @@ const MatchHistory = () => {
           </div>
         </div>
       </div>
-      <div className="col-5"></div>
+      <div className="col-5">
+        <div className="teamlist">
+          <Summoner src="https://picsum.photos/id/35/1280/901" />
+          <Summoner src="https://picsum.photos/id/35/1280/901" />
+          <Summoner src="https://picsum.photos/id/35/1280/901" />
+          <Summoner src="https://picsum.photos/id/35/1280/901" />
+          <Summoner src="https://picsum.photos/id/35/1280/901" />
+        </div>
+        <div className="teamlist">
+          <Summoner src="https://picsum.photos/id/35/1280/901" />
+          <Summoner src="https://picsum.photos/id/35/1280/901" />
+          <Summoner src="https://picsum.photos/id/35/1280/901" />
+          <Summoner src="https://picsum.photos/id/35/1280/901" />
+          <Summoner src="https://picsum.photos/id/35/1280/901" />
+        </div>
+      </div>
     </div>
   )
 
@@ -113,11 +128,11 @@ const MatchHistory = () => {
   )
 }
 
-function TeamMate({ src }: {src : string}) {
+function Summoner({ src }: {src : string}) {
   return (
-    <div className="teammate">
-      <img className="teammate-img" src={src} />
-      <div className="teammate-name">WHY PP HARD 808</div>
+    <div className="summoner">
+      <img src={ src } />
+      <a>Name</a>
     </div>
   )
 }
