@@ -1,10 +1,6 @@
 import { FC, useState } from "react";
 import API_KEY from "../api";
 
-interface match {
-  info: object;
-}
-
 const Home:FC = () => {
   let [summonerName, setSummonerName] = useState<string>('');
   let [matchHistory, setMatchHistory] = useState<Array<any>>([]);

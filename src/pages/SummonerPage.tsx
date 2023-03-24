@@ -1,16 +1,87 @@
 import './SummonerPage.css';
 import './SummonerPageHeader.css';
 import './SummonerPageProfile.css';
+
 import PreviousRank from '../components/PreviousRank/PreviousRank';
 import ChampPerformance from '../components/ChampPerformance/ChampPerformance';
 import MatchHistory from '../components/MatchHistory/MatchHistory';
 
+import { useState } from 'react';
+import API_KEY from '../../api';
+
+interface summoner {
+  accountId: string,
+  id: string,
+  name: string,
+  puuid: string,
+  revisionDate: number,
+  summonerLevel: number
+}
+
+async function getRankedInfo(encryptedSummonerId: string) {
+  try {
+    const rankedData = await fetch(`https://na1.api.riotgames.com/lol/league/v4/entries/by-summoner/${encryptedSummonerId}?api_key=${API_KEY}`);
+    const rankedInfo = await rankedData.json();
+    console.log(rankedInfo)
+    return rankedInfo;
+  } catch (error) {
+    return error;
+  }
+}
+
+async function getSummoner(summonerName: string) {
+  try {
+    const summonerData = await fetch(`https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/${summonerName}?api_key=${API_KEY}`);
+    const summoner = await summonerData.json();
+    return summoner;
+  } catch (error) {
+    return error;
+  }
+}
+
 const SummonerPage = () => {
+
+  let [summonerSearch, setSummonerSearch] = useState<string>('');
+  let [matchHistory, setMatchHistory] = useState<Array<any>>([]);
+  
+  let [summoner, setSummoner] = useState<summoner | undefined>();
+
+  async function handleSubmit(e: any) {
+    e.preventDefault();
+    try {
+      // Get puuid from summoner name
+      const summoner = await getSummoner(summonerSearch);
+      const puuid = summoner.puuid;
+      const x = await getRankedInfo(summoner.id);
+      setSummoner(summoner);
+
+      // Get last 5 match ids from puuid
+      const matchesData = await fetch(`https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/${puuid}/ids?start=0&count=5&api_key=${API_KEY}`);
+      const matchIds = await matchesData.json();
+
+      // Get the data of those last 5 games from their respective ids
+      const matches = matchIds.map(async (id: string) => {
+        const matchData = await fetch(`https://americas.api.riotgames.com/lol/match/v5/matches/${id}?api_key=${API_KEY}`);
+        const match = await matchData.json();
+        return match;
+      })
+
+      const data = await Promise.all(matches);
+      setMatchHistory(data);
+      console.log(data);
+    } catch (error) {
+      console.error('Error Buddy:', error);
+    }
+  }
+
   return (
     <>
       <header className='profile-header'>
         <a className='logo' href='#'><img src='' alt='Logo' /></a>
-        <input className='summoner-search' type='text' placeholder='Search Summoner'/>
+        <form>
+          <input className='summoner-search' onChange={e => setSummonerSearch(e.target.value)} type='text' placeholder='Search Summoner' />
+          <button type="submit" onClick={handleSubmit}>Submit</button>
+        </form>
         <div className='mode-toggle'>
           <div className='light-mode'>LM</div>
           <div className="divider">|</div>
@@ -36,7 +107,7 @@ const SummonerPage = () => {
               <div className='profile-info'>
                 <img className='summoner-icon' src="https://picsum.photos/id/40/4106/2806" alt="summoner icon" />
                 <div className='summoner-info'>
-                  <div className='summoner-name'>NAME</div>
+                  <div className='summoner-name'>{summoner?.name}</div>
                   <div className='summoner-rank'>Ladder Rank 1,080 (top 0.2788%)</div>
                   <button className='summoner-update'>Update</button>
                 </div>
@@ -124,8 +195,6 @@ const SummonerPage = () => {
           </div>
         </section>
       </main>
-
-
     </>
   )
 }
