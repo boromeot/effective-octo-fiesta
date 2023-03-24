@@ -1,15 +1,8 @@
-import "./MatchHistorySmall.css";
-import "./MatchHistoryLarge.css";
-import "./MatchHistory.css";
-import MatchHistoryLarge from "./MatchHistoryLarge/MatchHistoryLarge";
-
-
-const MatchHistory = () => {
-
-  const large = (
+const MatchHistoryLarge = () => {
+  return (
     <div className="matchHistory-large">
       <div className="col-1">
-
+  
         <div className="row-1">
           <div><b>Ranked Solo</b></div>
           <div>3 days ago </div>
@@ -18,13 +11,13 @@ const MatchHistory = () => {
         <div className="row-2">
           25 LP
         </div>
-
+  
         <div className="row-3">
           <span>WIN</span>
           &nbsp;
           <span>32:12</span>
         </div>
-
+  
       </div>
       <div className="col-2">
         <div className="champion">
@@ -79,56 +72,7 @@ const MatchHistory = () => {
       </div>
     </div>
   )
-
-  const small = (
-    <div className="matchHistory-small">
-    <div className="matchResult">
-      <div>WIN </div>
-      <div className="matchType">
-        <b>Ranked Solo</b>
-        <span>21 hours ago</span>
-      </div>
-    </div>
-    <div className="matchDetails">
-      <div className="champDetails">
-        <img className="champIcon" src="https://picsum.photos/id/30/1280/901"/>
-        <div className="champSums">
-          <img className="champSum" src="https://picsum.photos/id/31/1280/901"/>
-          <img className="champSum" src="https://picsum.photos/id/31/1280/901"/>
-        </div>
-        <div className="champRunes">
-          <img className="champRune" src="https://picsum.photos/id/32/1280/901"/>
-          <img className="champRune" src="https://picsum.photos/id/32/1280/901"/>
-        </div>
-      </div>
-      <div className="matchStats">
-        <div>
-          <div className="items">
-            <Item src="https://picsum.photos/id/34/1280/901" />
-            <Item src="https://picsum.photos/id/34/1280/901" />
-            <Item src="https://picsum.photos/id/34/1280/901" />
-            <Item src="https://picsum.photos/id/34/1280/901" />
-            <Item src="https://picsum.photos/id/34/1280/901" />
-            <Item src="" />
-          </div>
-        </div>
-        <div className="KDA-container">
-          <div className="KDA">6 / <span className="deaths">1</span> / 2</div>
-          <div className="KDA-ratio">8.00 KDA</div>
-          <div className="cs"><span className="cs-total">125 </span> CS (7.9)</div>
-        </div>
-      </div>
-    </div>
-    </div>
-  )
-
-
-  return (
-    <>
-      <MatchHistoryLarge />
-    </>
-  )
-}
+} 
 
 function Summoner({ src }: {src : string}) {
   return (
@@ -149,4 +93,4 @@ function Item({ src }: {src : string | undefined}) {
   )
 }
 
-export default MatchHistory;
+export default MatchHistoryLarge;
