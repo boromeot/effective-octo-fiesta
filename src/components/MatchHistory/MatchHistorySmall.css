@@ -1,5 +1,3 @@
-
-
 .matchHistory-small {
   --lost: linear-gradient(0deg,rgba(255,78,80,.16),rgba(255,78,80,.16));
   --win: linear-gradient(0deg,rgba(50,115,250,.2),rgba(50,115,250,.2));
@@ -8,23 +6,11 @@
   background: var(--lost);
   border-radius: 5px;
 }
-
-@media (min-width: 600px) {
-    .matchHistory-small {
-      display: none;
-    }
-
-    .matchHistory-large {
-      display: grid;
-    }
-}
-
 .matchResult {
   display: flex;
   justify-content: space-between;
   margin-bottom: 5px;
 }
-
 .matchType {
   display: flex;
   gap: 5px;
@@ -40,9 +26,7 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-}
-
-.champDetails {
+}.champDetails {
   display: flex;
   gap: 5px;
 }
@@ -64,27 +48,6 @@
   height: 22px;
   border-radius: 2px;
 }
-
-.items {
-  display: flex;
-  gap: 4px;
-}
-
-.item, .item-container {
-  border-radius: 2px;
-}
-
-.item-container {
-  width: 18px;
-  height: 18px;
-  background-color: #223b80;
-}
-
-.item {
-  width: 18px;
-  height: 18px;
-}
-
 .KDA-container {
   display: flex;
   justify-content: space-between;

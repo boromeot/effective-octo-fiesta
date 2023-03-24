@@ -1,3 +1,4 @@
+import "./MatchHistorySmall.css";
 import "./MatchHistoryLarge.css";
 import "./MatchHistory.css";
 

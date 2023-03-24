@@ -1,9 +1,9 @@
 import './SummonerPage.css';
 import './SummonerPageHeader.css';
 import './SummonerPageProfile.css';
-import PreviousRank from '../ components/PreviousRank/PreviousRank';
-import ChampPerformance from '../ components/ChampPerformance/ChampPerformance';
-import MatchHistory from '../ components/MatchHistory';
+import PreviousRank from '../components/PreviousRank/PreviousRank';
+import ChampPerformance from '../components/ChampPerformance/ChampPerformance';
+import MatchHistory from '../components/MatchHistory/MatchHistory';
 
 const SummonerPage = () => {
   return (
@@ -32,10 +32,6 @@ const SummonerPage = () => {
                 <PreviousRank season={'S7'}rank={'Gold'}/>
                 <PreviousRank season={'S6'}rank={'Silver'}/>
                 <PreviousRank season={'S5'}rank={'Bronze'}/>
-                {/* <PreviousRank season={'S4'}rank={'Iron'}/>
-                <PreviousRank season={'S3'}rank={'Iron'}/>
-                <PreviousRank season={'S2'}rank={'Iron'}/>
-                <PreviousRank season={'S1'}rank={'Iron'}/> */}
               </ul>
               <div className='profile-info'>
                 <img className='summoner-icon' src="https://picsum.photos/id/40/4106/2806" alt="summoner icon" />

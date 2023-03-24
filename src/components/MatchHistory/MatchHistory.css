@@ -1,0 +1,29 @@
+@media (min-width: 600px) {
+    .matchHistory-small {
+      display: none;
+    }
+
+    .matchHistory-large {
+      display: grid;
+    }
+}
+
+.items {
+  display: flex;
+  gap: 4px;
+}
+
+.item, .item-container {
+  border-radius: 2px;
+}
+
+.item-container {
+  width: 18px;
+  height: 18px;
+  background-color: #223b80;
+}
+
+.item {
+  width: 18px;
+  height: 18px;
+}
