@@ -1,3 +1,5 @@
+import "./MatchHistoryLarge.css";
+
 const MatchHistoryLarge = () => {
   return (
     <div className="matchHistory-large">
