@@ -7,9 +7,9 @@ import ChampPerformance from '../components/ChampPerformance/ChampPerformance';
 import MatchHistory from '../components/MatchHistory/MatchHistory';
 import RankedPerformance from '../components/RankedPerformance/RankedPerformance';
 
-import { useState } from 'react';
-import API_KEY from '../../api';
 import * as apiUtil from '../util/apiUtil';
+import API_KEY from '../../api';
+import { useState } from 'react';
 import { summoner, rankedInfo } from '../interfaces';
 
 

@@ -7,6 +7,14 @@ interface RankedPerformanceProps {
 }
 
 function RankedPerformance({ rankedInfo, queueType} : RankedPerformanceProps) {
+  const roman2decimal: {[key: string]: string} = {
+    'I' : '1',
+    'II' : '2',
+    'III' : '3',
+    'IV' : '4',
+    'V': '5'
+  }
+
   return (
     <div className='ranked-container'>
       <div>{queueType}</div>
@@ -14,7 +22,7 @@ function RankedPerformance({ rankedInfo, queueType} : RankedPerformanceProps) {
         <img className='rank-img' src='https://picsum.photos/id/24/4855/1803' />
         <div className='ranked-info'>
           <div className='rank-text'>
-            <span className='rank-tier'>{rankedInfo?.tier} {rankedInfo?.rank}</span>
+            <span className='rank-tier'>{rankedInfo?.tier} {roman2decimal[rankedInfo?.rank]}</span>
             <span>{rankedInfo?.leaguePoints} LP</span>
           </div>
           <div className='rank-wins'>
