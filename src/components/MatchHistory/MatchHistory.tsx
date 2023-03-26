@@ -1,10 +1,13 @@
 import MatchHistoryLarge from "./MatchHistoryLarge/MatchHistoryLarge";
 import "./MatchHistory.css";
 
+interface MatchHistoryLargeProps {
+  gameDuration : string, 
+}
 
-const MatchHistory = () => {
+function MatchHistory({gameDuration} : MatchHistoryLargeProps) {
   return (
-    <MatchHistoryLarge />
+    <MatchHistoryLarge gameDuration={gameDuration}/>
   )
 }
 

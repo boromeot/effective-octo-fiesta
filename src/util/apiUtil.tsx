@@ -30,3 +30,13 @@ export async function getMatchIds(puuid: string, count: number = 5) {
     return error;
   }
 }
+
+export async function getMatchData(matchIds: Array<string>) {
+    const matches = matchIds.map(async (id: string) => {
+      const matchData = await fetch(`https://americas.api.riotgames.com/lol/match/v5/matches/${id}?api_key=${API_KEY}`);
+      const match = await matchData.json();
+      return match;
+    })
+    const data = await Promise.all(matches);
+    return data;
+}

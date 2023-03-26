@@ -1,6 +1,11 @@
 import "./MatchHistoryLarge.css";
+import { secondsToMinuteSeconds } from "../../../util/textUtil";
 
-const MatchHistoryLarge = () => {
+interface MatchHistoryLargeProps {
+  gameDuration : string, 
+}
+
+function MatchHistoryLarge({ gameDuration } : MatchHistoryLargeProps) {
   return (
     <div className="matchHistory-large">
       <div className="col-1">
@@ -17,7 +22,7 @@ const MatchHistoryLarge = () => {
         <div className="row-3">
           <span>WIN</span>
           &nbsp;
-          <span>32:12</span>
+          <span>{ secondsToMinuteSeconds(Number(gameDuration)) }</span>
         </div>
   
       </div>

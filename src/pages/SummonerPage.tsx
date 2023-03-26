@@ -37,19 +37,12 @@ const SummonerPage = () => {
       setFlexInfo(rankedInfo[1]);
       console.log(soloinfo);
 
-      // Get last 5 match ids from puuid
-      const matchIds = await apiUtil.getMatchIds(puuid, 5);
+      // Get last 3 match ids from puuid
+      const matchIds = await apiUtil.getMatchIds(puuid, 3);
 
-      // Get the data of those last 5 games from their respective ids
-      const matches = matchIds.map(async (id: string) => {
-        const matchData = await fetch(`https://americas.api.riotgames.com/lol/match/v5/matches/${id}?api_key=${API_KEY}`);
-        const match = await matchData.json();
-        return match;
-      })
-
-      const data = await Promise.all(matches);
-      setMatchHistory(data);
-      console.log(data);
+      // Get the data of those last 3 games from their respective ids
+      setMatchHistory(await apiUtil.getMatchData(matchIds));
+      console.log(matchHistory);
     } catch (error) {
       console.error('Error Buddy:', error);
     }
@@ -130,16 +123,11 @@ const SummonerPage = () => {
                 </div>
                 <div className='match-stats'></div>
                 <div className='matches'>
-                  <MatchHistory />
-                  <MatchHistory />
-                  <MatchHistory />
-                  <MatchHistory />
-                  <MatchHistory />
-                  <MatchHistory />
-                  <MatchHistory />
-                  <MatchHistory />
-                  <MatchHistory />
-                  <MatchHistory />
+                  { 
+                    matchHistory.map((match) => {
+                      return (<MatchHistory gameDuration={match.info.gameDuration}/>);
+                    })
+                  }
                 </div>
               </div>
             </div>
