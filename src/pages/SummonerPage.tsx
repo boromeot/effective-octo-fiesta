@@ -18,11 +18,27 @@ interface summoner {
   summonerLevel: number
 }
 
+interface rankedInfo {
+  freshBlood: boolean,
+  hotStreak: boolean,
+  inactive: boolean,
+  leagueId: string,
+  leaguePoints: number,
+  losses: number,
+  queueType: string,
+  rank: string,
+  summonerId: string,
+  summonerName: string,
+  tier: string,
+  veteran: boolean,
+  wins: number
+}
+
 async function getRankedInfo(encryptedSummonerId: string) {
   try {
     const rankedData = await fetch(`https://na1.api.riotgames.com/lol/league/v4/entries/by-summoner/${encryptedSummonerId}?api_key=${API_KEY}`);
     const rankedInfo = await rankedData.json();
-    console.log(rankedInfo)
+    console.log('rankedInfo', rankedInfo)
     return rankedInfo;
   } catch (error) {
     return error;
@@ -39,12 +55,25 @@ async function getSummoner(summonerName: string) {
   }
 }
 
+async function getMatchIds(puuid: string, count: number = 5) {
+  try {
+    const matchesData = await fetch(`https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/${puuid}/ids?start=0&count=${count}&api_key=${API_KEY}`);
+    const matches = await matchesData.json();
+    return matches;
+  } catch (error) {
+    return error;
+  }
+}
+
 const SummonerPage = () => {
 
   let [summonerSearch, setSummonerSearch] = useState<string>('');
   let [matchHistory, setMatchHistory] = useState<Array<any>>([]);
   
   let [summoner, setSummoner] = useState<summoner | undefined>();
+  let [rankedInfo, setRankedInfo] = useState<Array<rankedInfo> | undefined>();
+  let [soloinfo, setSoloInfo] = useState<rankedInfo | undefined>();
+  let [flexInfo, setFlexInfo] = useState<rankedInfo | undefined>();
 
   async function handleSubmit(e: any) {
     e.preventDefault();
@@ -52,12 +81,16 @@ const SummonerPage = () => {
       // Get puuid from summoner name
       const summoner = await getSummoner(summonerSearch);
       const puuid = summoner.puuid;
-      const x = await getRankedInfo(summoner.id);
       setSummoner(summoner);
 
+      // Get ranked info
+      const rankedInfo = await getRankedInfo(summoner.id);
+      setSoloInfo(rankedInfo[0]);
+      console.log(soloinfo);
+      setFlexInfo(rankedInfo[1]);
+
       // Get last 5 match ids from puuid
-      const matchesData = await fetch(`https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/${puuid}/ids?start=0&count=5&api_key=${API_KEY}`);
-      const matchIds = await matchesData.json();
+      const matchIds = await getMatchIds(puuid, 5);
 
       // Get the data of those last 5 games from their respective ids
       const matches = matchIds.map(async (id: string) => {
@@ -127,19 +160,24 @@ const SummonerPage = () => {
               <div className='overview-side'> {/* Left Column */} 
                 <div className='ranked-container'>
                   <div>Ranked Solo</div>
-                  <div className='ranked-content'>
+                  {soloinfo && <div className='ranked-content'>
                     <img className='rank-img' src='https://picsum.photos/id/24/4855/1803'/>
                     <div className='ranked-info'>
                         <div className='rank-text'>
-                          <span>Master</span>
-                          <span>482 LP</span>
+                          <span>{soloinfo?.tier}</span>
+                          <span>{soloinfo?.leaguePoints} LP</span>
                         </div>
                         <div className='rank-wins'>
-                          <span>119W 95L</span>
-                          <span>56% Win Rate</span>
+                          <span>{soloinfo?.wins}W {soloinfo?.losses}L</span>
+                          <span>
+                            {
+                              soloinfo &&
+                              Math.round((soloinfo?.wins / (soloinfo?.wins + soloinfo?.losses)) * 100)
+                            }
+                            % Win Rate</span>
                         </div>
                     </div>
-                  </div>
+                  </div>}
                 </div>
                 <div className='ranked-container'>
                   <div>Ranked Flex</div>
