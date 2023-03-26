@@ -1,0 +1,44 @@
+.ranked-container {
+  font-size: 14px;
+}
+
+.ranked-content {
+  display: flex;
+  gap: 11px;
+}
+
+.rank-img {
+  width: 54px;
+  height: 54px;
+}
+
+.ranked-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  width: 100%;
+}
+
+.rank-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.rank-tier {
+  display: inline-block;
+  text-transform: lowercase;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.rank-tier::first-letter {
+  text-transform: capitalize;
+}
+
+.rank-wins {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+}

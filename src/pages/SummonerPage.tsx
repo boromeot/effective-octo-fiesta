@@ -5,43 +5,20 @@ import './SummonerPageProfile.css';
 import PreviousRank from '../components/PreviousRank/PreviousRank';
 import ChampPerformance from '../components/ChampPerformance/ChampPerformance';
 import MatchHistory from '../components/MatchHistory/MatchHistory';
+import RankedPerformance from '../components/RankedPerformance/RankedPerformance';
 
 import { useState } from 'react';
 import API_KEY from '../../api';
 import * as apiUtil from '../util/apiUtil';
+import { summoner, rankedInfo } from '../interfaces';
 
-interface summoner {
-  accountId: string,
-  id: string,
-  name: string,
-  puuid: string,
-  revisionDate: number,
-  summonerLevel: number
-}
-
-interface rankedInfo {
-  freshBlood: boolean,
-  hotStreak: boolean,
-  inactive: boolean,
-  leagueId: string,
-  leaguePoints: number,
-  losses: number,
-  queueType: string,
-  rank: string,
-  summonerId: string,
-  summonerName: string,
-  tier: string,
-  veteran: boolean,
-  wins: number
-}
 
 const SummonerPage = () => {
 
   let [summonerSearch, setSummonerSearch] = useState<string>('');
   let [matchHistory, setMatchHistory] = useState<Array<any>>([]);
-  
+
   let [summoner, setSummoner] = useState<summoner | undefined>();
-  let [rankedInfo, setRankedInfo] = useState<Array<rankedInfo> | undefined>();
   let [soloinfo, setSoloInfo] = useState<rankedInfo | undefined>();
   let [flexInfo, setFlexInfo] = useState<rankedInfo | undefined>();
 
@@ -53,11 +30,12 @@ const SummonerPage = () => {
       const puuid = summoner.puuid;
       setSummoner(summoner);
 
-      // Get ranked info
+      // Get ranked data then, 
+      // store solo and flex info
       const rankedInfo = await apiUtil.getRankedInfo(summoner.id);
       setSoloInfo(rankedInfo[0]);
-      console.log(soloinfo);
       setFlexInfo(rankedInfo[1]);
+      console.log(soloinfo);
 
       // Get last 5 match ids from puuid
       const matchIds = await apiUtil.getMatchIds(puuid, 5);
@@ -98,14 +76,14 @@ const SummonerPage = () => {
           <div className="container">
             <div className="profile-container">
               <ul className='previous-ranks'> {/* UL should only render if the summoner has previous ranks*/}
-                <PreviousRank season={'S12'}rank={'Challenger'}/>
-                <PreviousRank season={'S11'}rank={'Grandmaster'}/>
-                <PreviousRank season={'S10'}rank={'Master'}/>
-                <PreviousRank season={'S9'}rank={'Diamond'}/>
-                <PreviousRank season={'S8'}rank={'Platinum'}/>
-                <PreviousRank season={'S7'}rank={'Gold'}/>
-                <PreviousRank season={'S6'}rank={'Silver'}/>
-                <PreviousRank season={'S5'}rank={'Bronze'}/>
+                <PreviousRank season={'S12'} rank={'Challenger'} />
+                <PreviousRank season={'S11'} rank={'Grandmaster'} />
+                <PreviousRank season={'S10'} rank={'Master'} />
+                <PreviousRank season={'S9'} rank={'Diamond'} />
+                <PreviousRank season={'S8'} rank={'Platinum'} />
+                <PreviousRank season={'S7'} rank={'Gold'} />
+                <PreviousRank season={'S6'} rank={'Silver'} />
+                <PreviousRank season={'S5'} rank={'Bronze'} />
               </ul>
               <div className='profile-info'>
                 <img className='summoner-icon' src="https://picsum.photos/id/40/4106/2806" alt="summoner icon" />
@@ -127,44 +105,9 @@ const SummonerPage = () => {
         <section>
           <div className="container">
             <div className="even-columns">
-              <div className='overview-side'> {/* Left Column */} 
-                <div className='ranked-container'>
-                  <div>Ranked Solo</div>
-                  {soloinfo && <div className='ranked-content'>
-                    <img className='rank-img' src='https://picsum.photos/id/24/4855/1803'/>
-                    <div className='ranked-info'>
-                        <div className='rank-text'>
-                          <span className='rank-tier'>{soloinfo?.tier} {soloinfo?.rank}</span>
-                          <span>{soloinfo?.leaguePoints} LP</span>
-                        </div>
-                        <div className='rank-wins'>
-                          <span>{soloinfo?.wins}W {soloinfo?.losses}L</span>
-                          <span>
-                            {
-                              soloinfo &&
-                              Math.round((soloinfo?.wins / (soloinfo?.wins + soloinfo?.losses)) * 100)
-                            }
-                            % Win Rate</span>
-                        </div>
-                    </div>
-                  </div>}
-                </div>
-                <div className='ranked-container'>
-                  <div>Ranked Flex</div>
-                  <div className='ranked-content'>
-                    <img className='rank-img' src='https://picsum.photos/id/24/4855/1803'/>
-                    <div className='ranked-info'>
-                        <div className='rank-text'>
-                          <span>Master</span>
-                          <span>482 LP</span>
-                        </div>
-                        <div className='rank-wins'>
-                          <span>119W 95L</span>
-                          <span>56% Win Rate</span>
-                        </div>
-                    </div>
-                  </div>
-                </div>
+              <div className='overview-side'> {/* Left Column */}
+                <RankedPerformance rankedInfo={soloinfo} queueType='Ranked Solo' />
+                <RankedPerformance rankedInfo={flexInfo} queueType='Ranked Flex' />
                 <div className='champion-stats'>
                   <div className='champion-stats-title'>
                     <div><b>Champion Stats</b></div>
@@ -180,7 +123,7 @@ const SummonerPage = () => {
                 </div>
                 <div className='recently-played'>RECENTLY PLAYED</div>
               </div>
-              <div className='overview-main'> {/* Right Column */} 
+              <div className='overview-main'> {/* Right Column */}
                 <div className='match-search champion-stats-title'>
                   <div><b>Match History</b></div>
                   <input />
