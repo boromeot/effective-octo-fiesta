@@ -64,6 +64,17 @@
   justify-content: center;
 }
 
+.rank-tier {
+  display: inline-block;
+  text-transform: lowercase;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.rank-tier::first-letter {
+  text-transform: capitalize;
+}
+
 .rank-wins {
   display: flex;
   flex-direction: column;

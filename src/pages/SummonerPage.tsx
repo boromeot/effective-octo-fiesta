@@ -8,6 +8,7 @@ import MatchHistory from '../components/MatchHistory/MatchHistory';
 
 import { useState } from 'react';
 import API_KEY from '../../api';
+import * as apiUtil from '../util/apiUtil';
 
 interface summoner {
   accountId: string,
@@ -34,37 +35,6 @@ interface rankedInfo {
   wins: number
 }
 
-async function getRankedInfo(encryptedSummonerId: string) {
-  try {
-    const rankedData = await fetch(`https://na1.api.riotgames.com/lol/league/v4/entries/by-summoner/${encryptedSummonerId}?api_key=${API_KEY}`);
-    const rankedInfo = await rankedData.json();
-    console.log('rankedInfo', rankedInfo)
-    return rankedInfo;
-  } catch (error) {
-    return error;
-  }
-}
-
-async function getSummoner(summonerName: string) {
-  try {
-    const summonerData = await fetch(`https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/${summonerName}?api_key=${API_KEY}`);
-    const summoner = await summonerData.json();
-    return summoner;
-  } catch (error) {
-    return error;
-  }
-}
-
-async function getMatchIds(puuid: string, count: number = 5) {
-  try {
-    const matchesData = await fetch(`https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/${puuid}/ids?start=0&count=${count}&api_key=${API_KEY}`);
-    const matches = await matchesData.json();
-    return matches;
-  } catch (error) {
-    return error;
-  }
-}
-
 const SummonerPage = () => {
 
   let [summonerSearch, setSummonerSearch] = useState<string>('');
@@ -79,18 +49,18 @@ const SummonerPage = () => {
     e.preventDefault();
     try {
       // Get puuid from summoner name
-      const summoner = await getSummoner(summonerSearch);
+      const summoner = await apiUtil.getSummoner(summonerSearch);
       const puuid = summoner.puuid;
       setSummoner(summoner);
 
       // Get ranked info
-      const rankedInfo = await getRankedInfo(summoner.id);
+      const rankedInfo = await apiUtil.getRankedInfo(summoner.id);
       setSoloInfo(rankedInfo[0]);
       console.log(soloinfo);
       setFlexInfo(rankedInfo[1]);
 
       // Get last 5 match ids from puuid
-      const matchIds = await getMatchIds(puuid, 5);
+      const matchIds = await apiUtil.getMatchIds(puuid, 5);
 
       // Get the data of those last 5 games from their respective ids
       const matches = matchIds.map(async (id: string) => {
@@ -164,7 +134,7 @@ const SummonerPage = () => {
                     <img className='rank-img' src='https://picsum.photos/id/24/4855/1803'/>
                     <div className='ranked-info'>
                         <div className='rank-text'>
-                          <span>{soloinfo?.tier}</span>
+                          <span className='rank-tier'>{soloinfo?.tier} {soloinfo?.rank}</span>
                           <span>{soloinfo?.leaguePoints} LP</span>
                         </div>
                         <div className='rank-wins'>
