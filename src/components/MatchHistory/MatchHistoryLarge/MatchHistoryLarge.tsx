@@ -18,7 +18,7 @@ interface Info {
   gameType: string,
   gameVersion: string,
   mapId: number,
-  participants: Array<string>,
+  participants: Array<Participant>,
   platformId: string,
   queueId: number,
   teams: Array<Object>,
@@ -29,6 +29,11 @@ interface MetaData {
   dataVersion: string,
   matchId: string,
   participants: Array<string>,
+}
+
+interface Participant {
+  summonerName: string,
+  summonerId: string,
 }
 
 function timeConverter(unixTimeStamp: number) {
@@ -47,7 +52,7 @@ function MatchHistoryLarge({ info, metaData } : MatchData) {
   
         <div className="row-1">
           <div><b>Ranked Solo</b></div>
-          <div>{timeConverter(info.gameCreation)}</div>
+          <div>{ timeConverter(info.gameCreation) }</div>
         </div>
         
         <div className="row-2">
@@ -98,29 +103,33 @@ function MatchHistoryLarge({ info, metaData } : MatchData) {
       </div>
       <div className="col-5">
         <div className="teamlist">
-          <Summoner src="https://picsum.photos/id/35/1280/901" />
-          <Summoner src="https://picsum.photos/id/35/1280/901" />
-          <Summoner src="https://picsum.photos/id/35/1280/901" />
-          <Summoner src="https://picsum.photos/id/35/1280/901" />
-          <Summoner src="https://picsum.photos/id/35/1280/901" />
+          {
+            info && info.participants.slice(0, info.participants.length / 2).map( participant  => {
+              return (
+                <Summoner src="https://picsum.photos/id/35/1280/901" summonerName={participant.summonerName} key={participant.summonerId}/>
+              )
+            })
+          }
         </div>
         <div className="teamlist">
-          <Summoner src="https://picsum.photos/id/35/1280/901" />
-          <Summoner src="https://picsum.photos/id/35/1280/901" />
-          <Summoner src="https://picsum.photos/id/35/1280/901" />
-          <Summoner src="https://picsum.photos/id/35/1280/901" />
-          <Summoner src="https://picsum.photos/id/35/1280/901" />
+        {
+            info && info.participants.slice(info.participants.length / 2).map( participant  => {
+              return (
+                <Summoner src="https://picsum.photos/id/35/1280/901" summonerName={participant.summonerName} key={participant.summonerId}/>
+              )
+            })
+          }
         </div>
       </div>
     </div>
   )
 } 
 
-function Summoner({ src }: {src : string}) {
+function Summoner({ src, summonerName }: {src : string, summonerName : string}) {
   return (
     <div className="summoner">
       <img src={ src } />
-      <a>Name</a>
+      <a>{ summonerName }</a>
     </div>
   )
 }

@@ -1,6 +1,6 @@
 .matchHistory-large {
   display: grid;
-  grid-template-columns: 1fr 1fr .6fr .8fr 1fr;
+  grid-template-columns: 1fr 1fr .6fr .8fr minmax(220px, 20%);
 }
 
 .row-1, .row-2 {
@@ -90,7 +90,6 @@
 /* ========= COL 5 ========= */
 .col-5 {
   display: flex;
-  justify-content: space-between;
   font-size: 10px;
 }
 
@@ -98,6 +97,8 @@
   display: flex;
   flex-direction: column;
   gap: 3px;
+  flex: 1 1;
+  overflow: hidden;
 }
 
 .summoner {
@@ -108,4 +109,10 @@
 .summoner > img {
   width: 14px;
   height: 14px;
+}
+
+.summoner > a {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
