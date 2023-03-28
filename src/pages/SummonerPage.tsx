@@ -4,8 +4,9 @@ import './SummonerPageProfile.css';
 
 import PreviousRank from '../components/PreviousRank/PreviousRank';
 import ChampPerformance from '../components/ChampPerformance/ChampPerformance';
-import MatchHistory from '../components/MatchHistory/MatchHistory';
 import RankedPerformance from '../components/RankedPerformance/RankedPerformance';
+import MatchHistoryLarge from '../components/MatchHistory/MatchHistoryLarge/MatchHistoryLarge';
+
 
 import * as apiUtil from '../util/apiUtil';
 import API_KEY from '../../api';
@@ -125,7 +126,7 @@ const SummonerPage = () => {
                 <div className='matches'>
                   { 
                     matchHistory.map((match) => {
-                      return (<MatchHistory gameDuration={match.info.gameDuration}/>);
+                      return (<MatchHistoryLarge matchData={match} />);
                     })
                   }
                 </div>

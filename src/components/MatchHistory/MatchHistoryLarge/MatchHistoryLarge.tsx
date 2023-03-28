@@ -1,11 +1,42 @@
 import "./MatchHistoryLarge.css";
+import "../MatchHistory.css";
 import { secondsToMinuteSeconds } from "../../../util/textUtil";
 
 interface MatchHistoryLargeProps {
-  gameDuration : string, 
+  matchData: MatchData,
 }
 
-function MatchHistoryLarge({ gameDuration } : MatchHistoryLargeProps) {
+interface MatchData {
+  info: Info,
+  metaData: MetaData,
+}
+
+interface Info {
+  gameCreation: number,
+  gameDuration: number,
+  gameEndTimestamp: number,
+  gameId: number,
+  gameMode: string,
+  gameName: string,
+  gameStartTimestamp: number,
+  gameType: string,
+  gameVersion: string,
+  mapId: number,
+  participants: Array<string>,
+  platformId: string,
+  queueId: number,
+  teams: Array<Object>,
+  tournamentCode: string,
+}
+
+interface MetaData {
+  dataVersion: string,
+  matchId: string,
+  participants: Array<string>,
+}
+
+function MatchHistoryLarge({ matchData } : MatchHistoryLargeProps) {
+  console.log('matchdata', matchData,)
   return (
     <div className="matchHistory-large">
       <div className="col-1">
@@ -22,7 +53,7 @@ function MatchHistoryLarge({ gameDuration } : MatchHistoryLargeProps) {
         <div className="row-3">
           <span>WIN</span>
           &nbsp;
-          <span>{ secondsToMinuteSeconds(Number(gameDuration)) }</span>
+          <span>{ secondsToMinuteSeconds(matchData.info.gameDuration) }</span>
         </div>
   
       </div>
