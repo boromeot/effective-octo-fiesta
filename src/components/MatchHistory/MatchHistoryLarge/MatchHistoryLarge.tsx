@@ -2,10 +2,6 @@ import "./MatchHistoryLarge.css";
 import "../MatchHistory.css";
 import { secondsToMinuteSeconds } from "../../../util/textUtil";
 
-interface MatchHistoryLargeProps {
-  matchData: MatchData,
-}
-
 interface MatchData {
   info: Info,
   metaData: MetaData,
@@ -35,15 +31,23 @@ interface MetaData {
   participants: Array<string>,
 }
 
-function MatchHistoryLarge({ matchData } : MatchHistoryLargeProps) {
-  console.log('matchdata', matchData,)
+function timeConverter(unixTimeStamp: number) {
+  const formatter = new Intl.RelativeTimeFormat('en');
+
+  const diff = Date.now() - new Date(unixTimeStamp).valueOf();
+  const time = formatter.format(Math.round(-diff / (1000 * 60 * 60 * 24)), 'days');
+  
+  return time;
+}
+
+function MatchHistoryLarge({ info, metaData } : MatchData) {
   return (
     <div className="matchHistory-large">
       <div className="col-1">
   
         <div className="row-1">
           <div><b>Ranked Solo</b></div>
-          <div>3 days ago </div>
+          <div>{timeConverter(info.gameCreation)}</div>
         </div>
         
         <div className="row-2">
@@ -53,7 +57,7 @@ function MatchHistoryLarge({ matchData } : MatchHistoryLargeProps) {
         <div className="row-3">
           <span>WIN</span>
           &nbsp;
-          <span>{ secondsToMinuteSeconds(matchData.info.gameDuration) }</span>
+          <span>{ secondsToMinuteSeconds(info.gameDuration) }</span>
         </div>
   
       </div>

@@ -125,8 +125,8 @@ const SummonerPage = () => {
                 <div className='match-stats'></div>
                 <div className='matches'>
                   { 
-                    matchHistory.map((match) => {
-                      return (<MatchHistoryLarge matchData={match} />);
+                    matchHistory.map(({ info, metaData}) => {
+                      return (<MatchHistoryLarge  info={info} metaData={metaData} />);
                     })
                   }
                 </div>
