@@ -37,7 +37,9 @@ interface Participant {
   summonerId: string,
   deaths: number,
   kills: number,
-  assists: number
+  assists: number,
+  totalMinionsKilled: number,
+  neutralMinionsKilled: number,
 }
 
 function timeConverter(unixTimeStamp: number) {
@@ -54,6 +56,13 @@ function MatchHistoryLarge({ profileName, info, metaData }: MatchData) {
     return p.summonerName === profileName;
   })
 
+  const cs = (player && player.neutralMinionsKilled + player.totalMinionsKilled) || 0;
+  const playerKda = player && ((player.kills + player.assists) / player.deaths).toFixed(2);
+  const playerCSperMin = player && Math.round(cs / (info.gameDuration / 60) * 10) / 10;
+  //Math.round(num * 10) / 10
+
+
+  console.log((info.gameDuration / 60).toFixed(2), ' mins ')
   return (
     <div className="matchHistory-large">
       <div className="col-1">
@@ -90,8 +99,8 @@ function MatchHistoryLarge({ profileName, info, metaData }: MatchData) {
       </div>
       <div className="col-3">
         <div className="kda-totals">{player?.kills} / <span className="deaths">{player?.deaths}</span> / {player?.assists}</div>
-        <div className="kda-ratio">1.00 KDA</div>
-        <div className="large-cs">122 CS (6.3)</div>
+        <div className="kda-ratio">{playerKda} KDA</div>
+        <div className="large-cs">{cs} CS ({playerCSperMin})</div>
         <div className="vision-score">9 vision</div>
       </div>
       <div className="col-4">
