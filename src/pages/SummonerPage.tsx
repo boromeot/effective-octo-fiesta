@@ -36,14 +36,12 @@ const SummonerPage = () => {
       const rankedInfo = await apiUtil.getRankedInfo(summoner.id);
       setSoloInfo(rankedInfo[0]);
       setFlexInfo(rankedInfo[1]);
-      console.log(soloinfo);
 
       // Get last 3 match ids from puuid
       const matchIds = await apiUtil.getMatchIds(puuid, 3);
 
       // Get the data of those last 3 games from their respective ids
       setMatchHistory(await apiUtil.getMatchData(matchIds));
-      console.log(matchHistory);
     } catch (error) {
       console.error('Error Buddy:', error);
     }
@@ -126,7 +124,7 @@ const SummonerPage = () => {
                 <div className='matches'>
                   { 
                     matchHistory.map(({ info, metaData}) => {
-                      return (<MatchHistoryLarge  info={info} metaData={metaData} />);
+                      return (<MatchHistoryLarge  profileName={summoner?.name} info={info} metaData={metaData} />);
                     })
                   }
                 </div>

@@ -12,7 +12,6 @@ const Home:FC = () => {
       const summonerData = await fetch(`https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/${summonerName}?api_key=${API_KEY}`);
       const summoner = await summonerData.json();
       const puuid = summoner.puuid;
-      console.log('summoner', summoner);
 
       // Get last 5 match ids from puuid
       const matchesData = await fetch(`https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/${puuid}/ids?start=0&count=5&api_key=${API_KEY}`);
@@ -27,7 +26,6 @@ const Home:FC = () => {
 
       const data = await Promise.all(matches);
       setMatchHistory(data);
-      console.log(data);
     } catch (error) {
       console.error('Error Buddy:', error);
     }

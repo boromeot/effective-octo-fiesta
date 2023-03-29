@@ -4,7 +4,6 @@ export async function getRankedInfo(encryptedSummonerId: string) {
   try {
     const rankedData = await fetch(`https://na1.api.riotgames.com/lol/league/v4/entries/by-summoner/${encryptedSummonerId}?api_key=${API_KEY}`);
     const rankedInfo = await rankedData.json();
-    console.log('rankedInfo', rankedInfo)
     return rankedInfo;
   } catch (error) {
     return error;

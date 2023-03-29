@@ -5,6 +5,7 @@ import { secondsToMinuteSeconds } from "../../../util/textUtil";
 interface MatchData {
   info: Info,
   metaData: MetaData,
+  profileName: string | undefined;
 }
 
 interface Info {
@@ -34,6 +35,9 @@ interface MetaData {
 interface Participant {
   summonerName: string,
   summonerId: string,
+  deaths: number,
+  kills: number,
+  assists: number
 }
 
 function timeConverter(unixTimeStamp: number) {
@@ -45,7 +49,11 @@ function timeConverter(unixTimeStamp: number) {
   return time;
 }
 
-function MatchHistoryLarge({ info, metaData }: MatchData) {
+function MatchHistoryLarge({ profileName, info, metaData }: MatchData) {
+  const player = info.participants.find(p => {
+    return p.summonerName === profileName;
+  })
+
   return (
     <div className="matchHistory-large">
       <div className="col-1">
@@ -81,7 +89,7 @@ function MatchHistoryLarge({ info, metaData }: MatchData) {
         </div>
       </div>
       <div className="col-3">
-        <div className="kda-totals">2 / <span className="deaths">3</span> / 1</div>
+        <div className="kda-totals">{player?.kills} / <span className="deaths">{player?.deaths}</span> / {player?.assists}</div>
         <div className="kda-ratio">1.00 KDA</div>
         <div className="large-cs">122 CS (6.3)</div>
         <div className="vision-score">9 vision</div>
