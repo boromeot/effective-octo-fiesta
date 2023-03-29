@@ -13,7 +13,7 @@
   margin-top: 20px;
 }
 
-@media (min-width: 899px) {
+@media (min-width: 975px) {
   .even-columns {
     grid-auto-flow: column;
     grid-auto-columns: 2fr;

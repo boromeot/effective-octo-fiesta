@@ -43,6 +43,13 @@ interface Participant {
   visionScore: number,
   champLevel: number,
   win: boolean,
+  item0: number,
+  item1: number,
+  item2: number,
+  item3: number,
+  item4: number,
+  item5: number,
+  item6: number,
 }
 
 function timeConverter(unixTimeStamp: number) {
@@ -59,6 +66,8 @@ function MatchHistoryLarge({ profileName, info, metaData }: MatchData) {
     return p.summonerName === profileName;
   })
   
+  console.log(info)
+
   const cs = (player && player.neutralMinionsKilled + player.totalMinionsKilled) || 0;
   const playerKda = player && ((player.kills + player.assists) / player.deaths).toFixed(2);
   const playerCSperMin = player && Math.round(cs / (info.gameDuration / 60) * 10) / 10;
@@ -77,7 +86,7 @@ function MatchHistoryLarge({ profileName, info, metaData }: MatchData) {
         </div>
 
         <div className="row-3">
-          <span>{player?.win ? 'Win' : 'Loss'}</span>
+          <span className={`${player?.win ? 'textWin' : 'textLoss'}`}>{player?.win ? 'Win' : 'Loss'}</span>
           &nbsp;
           <span>{secondsToMinuteSeconds(info.gameDuration)}</span>
         </div>
@@ -106,12 +115,13 @@ function MatchHistoryLarge({ profileName, info, metaData }: MatchData) {
       <div className="col-4">
         <div className="items">
           <div className="main-items">
-            <Item src="https://picsum.photos/id/34/1280/901" />
-            <Item src="https://picsum.photos/id/34/1280/901" />
-            <Item src="https://picsum.photos/id/34/1280/901" />
-            <Item src="https://picsum.photos/id/34/1280/901" />
-            <Item src="https://picsum.photos/id/34/1280/901" />
-            <Item src="https://picsum.photos/id/34/1280/901" />
+            {/* http://ddragon.leagueoflegends.com/cdn/13.6.1/img/item/1001.png */}
+            <Item src={`http://ddragon.leagueoflegends.com/cdn/13.6.1/img/item/${player?.item0}.png`} />
+            <Item src={`http://ddragon.leagueoflegends.com/cdn/13.6.1/img/item/${player?.item1}.png`} />
+            <Item src={`http://ddragon.leagueoflegends.com/cdn/13.6.1/img/item/${player?.item2}.png`} />
+            <Item src={`http://ddragon.leagueoflegends.com/cdn/13.6.1/img/item/${player?.item3}.png`} />
+            <Item src={`http://ddragon.leagueoflegends.com/cdn/13.6.1/img/item/${player?.item4}.png`} />
+            <Item src={`http://ddragon.leagueoflegends.com/cdn/13.6.1/img/item/${player?.item5}.png`} />
           </div>
           <div className="trinket">
             <Item src="https://picsum.photos/id/34/1280/901" />
