@@ -40,6 +40,9 @@ interface Participant {
   assists: number,
   totalMinionsKilled: number,
   neutralMinionsKilled: number,
+  visionScore: number,
+  champLevel: number,
+  win: boolean,
 }
 
 function timeConverter(unixTimeStamp: number) {
@@ -55,16 +58,13 @@ function MatchHistoryLarge({ profileName, info, metaData }: MatchData) {
   const player = info.participants.find(p => {
     return p.summonerName === profileName;
   })
-
+  
   const cs = (player && player.neutralMinionsKilled + player.totalMinionsKilled) || 0;
   const playerKda = player && ((player.kills + player.assists) / player.deaths).toFixed(2);
   const playerCSperMin = player && Math.round(cs / (info.gameDuration / 60) * 10) / 10;
-  //Math.round(num * 10) / 10
 
-
-  console.log((info.gameDuration / 60).toFixed(2), ' mins ')
   return (
-    <div className="matchHistory-large">
+    <div className={`matchHistory-large ${player?.win ? 'win' : 'loss'}`}>
       <div className="col-1">
 
         <div className="row-1">
@@ -77,7 +77,7 @@ function MatchHistoryLarge({ profileName, info, metaData }: MatchData) {
         </div>
 
         <div className="row-3">
-          <span>WIN</span>
+          <span>{player?.win ? 'Win' : 'Loss'}</span>
           &nbsp;
           <span>{secondsToMinuteSeconds(info.gameDuration)}</span>
         </div>
@@ -86,7 +86,7 @@ function MatchHistoryLarge({ profileName, info, metaData }: MatchData) {
       <div className="col-2">
         <div className="champion">
           <img src="https://picsum.photos/id/34/3872/2592" />
-          <div className="level">16</div>
+          <div className="level">{player?.champLevel}</div>
         </div>
         <div className="summoner-spell">
           <img src="https://picsum.photos/id/35/3872/2592" />
@@ -101,7 +101,7 @@ function MatchHistoryLarge({ profileName, info, metaData }: MatchData) {
         <div className="kda-totals">{player?.kills} / <span className="deaths">{player?.deaths}</span> / {player?.assists}</div>
         <div className="kda-ratio">{playerKda} KDA</div>
         <div className="large-cs">{cs} CS ({playerCSperMin})</div>
-        <div className="vision-score">9 vision</div>
+        <div className="vision-score">{player?.visionScore} vision</div>
       </div>
       <div className="col-4">
         <div className="items">

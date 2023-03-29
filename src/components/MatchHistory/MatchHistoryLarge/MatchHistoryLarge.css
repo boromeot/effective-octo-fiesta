@@ -1,6 +1,15 @@
 .matchHistory-large {
   display: grid;
   grid-template-columns: 1fr 1fr .6fr .8fr minmax(220px, 20%);
+  border-radius: 3px;
+}
+
+.win {
+  background: linear-gradient(0deg,rgba(50,115,250,.2),rgba(50,115,250,.2)),#191937;
+}
+
+.loss {
+  background: linear-gradient(0deg,rgba(255,78,80,.16),rgba(255,78,80,.16)),#191937;
 }
 
 .row-1, .row-2 {
