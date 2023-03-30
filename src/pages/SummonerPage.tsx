@@ -42,6 +42,7 @@ const SummonerPage = () => {
 
       // Get the data of those last 3 games from their respective ids
       setMatchHistory(await apiUtil.getMatchData(matchIds));
+      console.log(summoner, 'summoner')
     } catch (error) {
       console.error('Error Buddy:', error);
     }
@@ -78,7 +79,7 @@ const SummonerPage = () => {
                 <PreviousRank season={'S5'} rank={'Bronze'} />
               </ul>
               <div className='profile-info'>
-                <img className='summoner-icon' src="https://picsum.photos/id/40/4106/2806" alt="summoner icon" />
+                <img className='summoner-icon' src={`http://ddragon.leagueoflegends.com/cdn/13.6.1/img/profileicon/${summoner?.profileIconId}.png`} alt="summoner icon" />
                 <div className='summoner-info'>
                   <div className='summoner-name'>{summoner?.name}</div>
                   <div className='summoner-rank'>Ladder Rank 1,080 (top 0.2788%)</div>

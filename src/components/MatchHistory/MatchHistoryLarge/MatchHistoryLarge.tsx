@@ -42,6 +42,7 @@ interface Participant {
   neutralMinionsKilled: number,
   visionScore: number,
   champLevel: number,
+  championName: string,
   win: boolean,
   item0: number,
   item1: number,
@@ -66,8 +67,7 @@ function MatchHistoryLarge({ profileName, info, metaData }: MatchData) {
     return p.summonerName === profileName;
   })
   
-  console.log(info)
-
+  console.log(player)
   const cs = (player && player.neutralMinionsKilled + player.totalMinionsKilled) || 0;
   const playerKda = player && ((player.kills + player.assists) / player.deaths).toFixed(2);
   const playerCSperMin = player && Math.round(cs / (info.gameDuration / 60) * 10) / 10;
@@ -94,7 +94,7 @@ function MatchHistoryLarge({ profileName, info, metaData }: MatchData) {
       </div>
       <div className="col-2">
         <div className="champion">
-          <img src="https://picsum.photos/id/34/3872/2592" />
+          <img src={`http://ddragon.leagueoflegends.com/cdn/13.6.1/img/champion/${player?.championName}.png`} />
           <div className="level">{player?.champLevel}</div>
         </div>
         <div className="summoner-spell">
@@ -115,16 +115,15 @@ function MatchHistoryLarge({ profileName, info, metaData }: MatchData) {
       <div className="col-4">
         <div className="items">
           <div className="main-items">
-            {/* http://ddragon.leagueoflegends.com/cdn/13.6.1/img/item/1001.png */}
-            <Item src={`http://ddragon.leagueoflegends.com/cdn/13.6.1/img/item/${player?.item0}.png`} />
-            <Item src={`http://ddragon.leagueoflegends.com/cdn/13.6.1/img/item/${player?.item1}.png`} />
-            <Item src={`http://ddragon.leagueoflegends.com/cdn/13.6.1/img/item/${player?.item2}.png`} />
-            <Item src={`http://ddragon.leagueoflegends.com/cdn/13.6.1/img/item/${player?.item3}.png`} />
-            <Item src={`http://ddragon.leagueoflegends.com/cdn/13.6.1/img/item/${player?.item4}.png`} />
-            <Item src={`http://ddragon.leagueoflegends.com/cdn/13.6.1/img/item/${player?.item5}.png`} />
+            <Item itemId={player?.item0} />
+            <Item itemId={player?.item1} />
+            <Item itemId={player?.item2} />
+            <Item itemId={player?.item3} />
+            <Item itemId={player?.item4} />
+            <Item itemId={player?.item5} />
           </div>
           <div className="trinket">
-            <Item src="https://picsum.photos/id/34/1280/901" />
+            <Item itemId={player?.item6} />
           </div>
         </div>
       </div>
@@ -161,11 +160,11 @@ function Summoner({ src, summonerName }: { src: string, summonerName: string }) 
   )
 }
 
-function Item({ src }: { src: string | undefined }) {
+function Item({ itemId }: { itemId: number | undefined }) {
   return (
     <div className="item-container">
       {
-        src && <img className='item' src={src} />
+        itemId !== 0 && <img className='item' src={`http://ddragon.leagueoflegends.com/cdn/13.6.1/img/item/${itemId}.png`} />
       }
     </div>
   )

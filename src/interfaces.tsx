@@ -4,7 +4,8 @@ export interface summoner {
   name: string,
   puuid: string,
   revisionDate: number,
-  summonerLevel: number
+  summonerLevel: number,
+  profileIconId: number,
 }
 
 export interface rankedInfo {
