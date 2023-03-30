@@ -44,6 +44,8 @@ interface Participant {
   champLevel: number,
   championName: string,
   win: boolean,
+  summoner1Id: number,
+  summoner2Id: number,
   item0: number,
   item1: number,
   item2: number,
@@ -60,6 +62,25 @@ function timeConverter(unixTimeStamp: number) {
   const time = formatter.format(Math.round(-diff / (1000 * 60 * 60 * 24)), 'days');
 
   return time;
+}
+
+const IdtoSumSpell: {[key: number]: string} = {
+  1 : 'SummonerBoost',
+  3 : 'SummonerExhaust',
+  4 : 'SummonerFlash',
+  6 : 'SummonerHaste',
+  7 : 'SummonerHeal',
+  11 : 'SummonerSmite',
+  12 : 'SummonerTeleport',
+  13 : 'SummonerMana',
+  14 : 'SummonerDot',
+  21 : 'SummonerBarrier',
+  30 : 'SummonerPoroRecall',
+  31 : 'SummonerPoroThrow',
+  32 : 'SummonerSnowball',
+  39 : 'SummonerSnowURFSnowball_Mark',
+  54 : 'Summoner_UltBookPlaceholder',
+  55 : 'Summoner_UltBookSmitePlaceholder',
 }
 
 function MatchHistoryLarge({ profileName, info, metaData }: MatchData) {
@@ -98,8 +119,8 @@ function MatchHistoryLarge({ profileName, info, metaData }: MatchData) {
           <div className="level">{player?.champLevel}</div>
         </div>
         <div className="summoner-spell">
-          <img src="https://picsum.photos/id/35/3872/2592" />
-          <img src="https://picsum.photos/id/35/3872/2592" />
+          <img src={`http://ddragon.leagueoflegends.com/cdn/13.6.1/img/spell/${IdtoSumSpell[player?.summoner1Id || 1]}.png`} />
+          <img src={`http://ddragon.leagueoflegends.com/cdn/13.6.1/img/spell/${IdtoSumSpell[player?.summoner2Id || 1]}.png`} />
         </div>
         <div className="runes">
           <img src="https://picsum.photos/id/37/3872/2592" />
