@@ -132,7 +132,7 @@ function MatchHistoryLarge({ profileName, info, metaData }: MatchData) {
           {
             info && info.participants.slice(0, info.participants.length / 2).map(participant => {
               return (
-                <Summoner src="https://picsum.photos/id/35/1280/901" summonerName={participant.summonerName} key={participant.summonerId} />
+                <Summoner championName={participant?.championName} summonerName={participant.summonerName} key={participant.summonerId} />
               )
             })
           }
@@ -141,7 +141,7 @@ function MatchHistoryLarge({ profileName, info, metaData }: MatchData) {
           {
             info && info.participants.slice(info.participants.length / 2).map(participant => {
               return (
-                <Summoner src="https://picsum.photos/id/35/1280/901" summonerName={participant.summonerName} key={participant.summonerId} />
+                <Summoner championName={participant?.championName} summonerName={participant.summonerName} key={participant.summonerId} />
               )
             })
           }
@@ -151,10 +151,10 @@ function MatchHistoryLarge({ profileName, info, metaData }: MatchData) {
   )
 }
 
-function Summoner({ src, summonerName }: { src: string, summonerName: string }) {
+function Summoner({ championName, summonerName }: { championName: string, summonerName: string }) {
   return (
     <div className="summoner">
-      <img src={src} />
+      <img src={`http://ddragon.leagueoflegends.com/cdn/13.6.1/img/champion/${championName}.png`} />
       <a>{summonerName}</a>
     </div>
   )
