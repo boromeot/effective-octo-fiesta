@@ -53,6 +53,18 @@ interface Participant {
   item4: number,
   item5: number,
   item6: number,
+  perks: perks,
+}
+
+interface perks {
+  statPerks: Object,
+  styles: Array<Styles>
+}
+
+interface Styles {
+  description : string,
+  selections : Array<Object>,
+  style : number
 }
 
 function timeConverter(unixTimeStamp: number) {
@@ -81,6 +93,14 @@ const IdtoSumSpell: {[key: number]: string} = {
   39 : 'SummonerSnowURFSnowball_Mark',
   54 : 'Summoner_UltBookPlaceholder',
   55 : 'Summoner_UltBookSmitePlaceholder',
+}
+
+const IdtoRune: {[key: number]: string} = {
+  8000 : '7201_Precision.png',
+  8100 : '7200_Domination.png',
+  8200 : '7202_Sorcery.png',
+  8300 : '7203_Whimsy.png',
+  8400 : '7204_Resolve.png',
 }
 
 function MatchHistoryLarge({ profileName, info, metaData }: MatchData) {
@@ -123,8 +143,8 @@ function MatchHistoryLarge({ profileName, info, metaData }: MatchData) {
           <img src={`http://ddragon.leagueoflegends.com/cdn/13.6.1/img/spell/${IdtoSumSpell[player?.summoner2Id || 1]}.png`} />
         </div>
         <div className="runes">
-          <img src="https://picsum.photos/id/37/3872/2592" />
-          <img src="https://picsum.photos/id/37/3872/2592" />
+          <img src={`https://ddragon.canisback.com/img/perk-images/Styles/${IdtoRune[player?.perks.styles[0].style || 8000]}`} />
+          <img src={`https://ddragon.canisback.com/img/perk-images/Styles/${IdtoRune[player?.perks.styles[1].style || 8000]}`} />
         </div>
       </div>
       <div className="col-3">
