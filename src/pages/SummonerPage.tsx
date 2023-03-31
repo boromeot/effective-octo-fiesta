@@ -42,7 +42,6 @@ const SummonerPage = () => {
 
       // Get the data of those last 3 games from their respective ids
       setMatchHistory(await apiUtil.getMatchData(matchIds));
-      console.log(matchHistory, 'match')
     } catch (error) {
       console.error('Error Buddy:', error);
     }

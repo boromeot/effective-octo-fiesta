@@ -9,7 +9,6 @@ function MatchHistoryLarge({ profileName, info, metaData }: MatchData) {
     return p.summonerName === profileName;
   })
   
-  console.log(player)
   const cs = (player && player.neutralMinionsKilled + player.totalMinionsKilled) || 0;
   const playerKda = player && ((player.kills + player.assists) / player.deaths).toFixed(2);
   const playerCSperMin = player && Math.round(cs / (info.gameDuration / 60) * 10) / 10;
@@ -72,7 +71,7 @@ function MatchHistoryLarge({ profileName, info, metaData }: MatchData) {
       <div className="col-5">
         <div className="teamlist">
           {
-            info && info.participants.slice(0, info.participants.length / 2).map(participant => {
+            info && info.participants.slice(0, info.participants.length / 2).map(participant => { // Display 0 -> 4
               return (
                 <Summoner championName={participant?.championName} summonerName={participant.summonerName} key={participant.summonerId} />
               )
@@ -81,7 +80,7 @@ function MatchHistoryLarge({ profileName, info, metaData }: MatchData) {
         </div>
         <div className="teamlist">
           {
-            info && info.participants.slice(info.participants.length / 2).map(participant => {
+            info && info.participants.slice(info.participants.length / 2).map(participant => { // Disaply 5 -> 9
               return (
                 <Summoner championName={participant?.championName} summonerName={participant.summonerName} key={participant.summonerId} />
               )
