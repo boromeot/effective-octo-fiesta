@@ -1,44 +1,8 @@
 import "./MatchHistoryLarge.css";
 import "../MatchHistory.css";
-import { secondsToMinuteSeconds } from "../../../util/textUtil";
+import { secondsToMinuteSeconds, timeConverter } from "../../../util/textUtil";
 import { MatchData } from "../../../interfaces";
-
-
-function timeConverter(unixTimeStamp: number) {
-  const formatter = new Intl.RelativeTimeFormat('en');
-
-  const diff = Date.now() - new Date(unixTimeStamp).valueOf();
-  const time = formatter.format(Math.round(-diff / (1000 * 60 * 60 * 24)), 'days');
-
-  return time;
-}
-
-const IdtoSumSpell: {[key: number]: string} = {
-  1 : 'SummonerBoost',
-  3 : 'SummonerExhaust',
-  4 : 'SummonerFlash',
-  6 : 'SummonerHaste',
-  7 : 'SummonerHeal',
-  11 : 'SummonerSmite',
-  12 : 'SummonerTeleport',
-  13 : 'SummonerMana',
-  14 : 'SummonerDot',
-  21 : 'SummonerBarrier',
-  30 : 'SummonerPoroRecall',
-  31 : 'SummonerPoroThrow',
-  32 : 'SummonerSnowball',
-  39 : 'SummonerSnowURFSnowball_Mark',
-  54 : 'Summoner_UltBookPlaceholder',
-  55 : 'Summoner_UltBookSmitePlaceholder',
-}
-
-const IdtoRune: {[key: number]: string} = {
-  8000 : '7201_Precision.png',
-  8100 : '7200_Domination.png',
-  8200 : '7202_Sorcery.png',
-  8300 : '7203_Whimsy.png',
-  8400 : '7204_Resolve.png',
-}
+import { IdtoSumSpell, IdtoRune } from "../../../util/mapUtil";
 
 function MatchHistoryLarge({ profileName, info, metaData }: MatchData) {
   const player = info.participants.find(p => {

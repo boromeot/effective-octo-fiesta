@@ -7,3 +7,12 @@ export function secondsToMinuteSeconds(seconds: number) {
     const remainder = seconds % 60;
     return `${minutes}:${remainder}`;
 }
+
+export function timeConverter(unixTimeStamp: number) {
+  const formatter = new Intl.RelativeTimeFormat('en');
+
+  const diff = Date.now() - new Date(unixTimeStamp).valueOf();
+  const time = formatter.format(Math.round(-diff / (1000 * 60 * 60 * 24)), 'days');
+
+  return time;
+}
