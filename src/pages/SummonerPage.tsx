@@ -7,52 +7,59 @@ import ChampPerformance from '../components/ChampPerformance/ChampPerformance';
 import RankedPerformance from '../components/RankedPerformance/RankedPerformance';
 import MatchHistoryLarge from '../components/MatchHistory/MatchHistoryLarge/MatchHistoryLarge';
 
-
 import * as apiUtil from '../util/apiUtil';
-import API_KEY from '../../api';
-import { useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { summoner, rankedInfo } from '../interfaces';
+
+import { useSearchParams } from 'react-router-dom';
 
 
 const SummonerPage = () => {
 
-  let [summonerSearch, setSummonerSearch] = useState<string>('');
+  let [searchParams, setSearchParams] = useSearchParams();
   let [matchHistory, setMatchHistory] = useState<Array<any>>([]);
 
   let [summoner, setSummoner] = useState<summoner | undefined>();
   let [soloinfo, setSoloInfo] = useState<rankedInfo | undefined>();
   let [flexInfo, setFlexInfo] = useState<rankedInfo | undefined>();
 
-  async function handleSubmit(e: any) {
-    e.preventDefault();
+  function handleChange(e: any) {
+    setSearchParams({ name: e.target.value});
+  }
+
+  const fetchData = async (name: string) => {
     try {
-      // Get puuid from summoner name
-      const summoner = await apiUtil.getSummoner(summonerSearch);
+      const summoner = await apiUtil.getSummoner(name);
       const puuid = summoner.puuid;
       setSummoner(summoner);
-
-      // Get ranked data then, 
-      // store solo and flex info
+  
       const rankedInfo = await apiUtil.getRankedInfo(summoner.id);
       setSoloInfo(rankedInfo[0]);
       setFlexInfo(rankedInfo[1]);
-
-      // Get last 3 match ids from puuid
+  
       const matchIds = await apiUtil.getMatchIds(puuid, 3);
-
-      // Get the data of those last 3 games from their respective ids
+  
       setMatchHistory(await apiUtil.getMatchData(matchIds));
     } catch (error) {
       console.error('Error Buddy:', error);
     }
   }
+  
+  useEffect(() => {
+    fetchData(searchParams.get('name') || '404');
+  }, []);
+  
+  const handleSubmit: any = useCallback((e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    fetchData(searchParams.get('name') || '404');
+  }, [searchParams]);
 
   return (
     <>
       <header className='profile-header'>
         <a className='logo' href='#'><img src='' alt='Logo' /></a>
         <form>
-          <input className='summoner-search' onChange={e => setSummonerSearch(e.target.value)} type='text' placeholder='Search Summoner' />
+          <input className='summoner-search' onChange={handleChange} type='text' placeholder='Search Summoner' />
           <button type="submit" onClick={handleSubmit}>Submit</button>
         </form>
         <div className='mode-toggle'>
@@ -67,16 +74,6 @@ const SummonerPage = () => {
         <section>
           <div className="container">
             <div className="profile-container">
-              <ul className='previous-ranks'> {/* UL should only render if the summoner has previous ranks*/}
-                <PreviousRank season={'S12'} rank={'Challenger'} />
-                <PreviousRank season={'S11'} rank={'Grandmaster'} />
-                <PreviousRank season={'S10'} rank={'Master'} />
-                <PreviousRank season={'S9'} rank={'Diamond'} />
-                <PreviousRank season={'S8'} rank={'Platinum'} />
-                <PreviousRank season={'S7'} rank={'Gold'} />
-                <PreviousRank season={'S6'} rank={'Silver'} />
-                <PreviousRank season={'S5'} rank={'Bronze'} />
-              </ul>
               <div className='profile-info'>
                 <img className='summoner-icon' src={`http://ddragon.leagueoflegends.com/cdn/13.6.1/img/profileicon/${summoner?.profileIconId}.png`} alt="summoner icon" />
                 <div className='summoner-info'>
@@ -136,5 +133,4 @@ const SummonerPage = () => {
     </>
   )
 }
-
 export default SummonerPage;
